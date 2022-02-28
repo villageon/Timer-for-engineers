@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-### limitアプリ用
-=======
-### Laravelでecサイトを構築する
->>>>>>> 70ed29378614371bc10cf104a351939e32184ded
+## Timer-for-engineers
