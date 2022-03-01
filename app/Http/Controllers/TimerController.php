@@ -10,17 +10,45 @@ use Illuminate\Support\Facades\Auth;
 class TimerController extends Controller
 {
     public function history(){
-        $fif = TimerHistory::where('user_id', Auth::id())
+        $fifteen = TimerHistory::where('user_id', Auth::id())
         ->where('type','1')
-        ->get();
+        ->paginate(5);
 
-        $thi = TimerHistory::where('user_id', Auth::id())
+        $fifCount = TimerHistory::where('user_id', Auth::id())
+        ->where('type','1')
+        ->get()->count();
+
+        $fifWinCount = TimerHistory::where('user_id', Auth::id())
+        ->where('type','1')
+        ->where('judge', '1')
+        ->get()->count();
+
+        $fifLoseCount = TimerHistory::where('user_id', Auth::id())
+        ->where('type','1')
+        ->where('judge', '2')
+        ->get()->count();
+
+        $thirty = TimerHistory::where('user_id', Auth::id())
         ->where('type','2')
-        ->get();
+        ->paginate(5);
+
+        $thiCount = TimerHistory::where('user_id', Auth::id())
+        ->where('type','2')
+        ->get()->count();
+
+        $thiWinCount = TimerHistory::where('user_id', Auth::id())
+        ->where('type','2')
+        ->where('judge', '1')
+        ->get()->count();
+
+        $thiLoseCount = TimerHistory::where('user_id', Auth::id())
+        ->where('type','2')
+        ->where('judge', '2')
+        ->get()->count();
 
         // dd($fif , $thi);
 
-        return view('timer.history', compact('fif', 'thi'));
+        return view('timer.history', compact('fifteen', 'fifCount', 'fifWinCount', 'fifLoseCount', 'thirty', 'thiCount', 'thiWinCount','thiLoseCount'));
 
     }
 }

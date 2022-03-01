@@ -24,7 +24,7 @@
                                     </div>
 
                                     {{-- タイマー --}}
-                                    <div class="mt-10">
+                                    <div class="mt-10 text-center">
                                         <p id="display" class="flex justify-center text-8xl">0:10</p>
                                     </div>
 
