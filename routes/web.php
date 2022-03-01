@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FifteenTimerController;
+use App\Http\Controllers\ThirtyTimerController;
+use App\Http\Controllers\TimerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,11 +20,23 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware('auth:users')->group(function(){
+Route::middleware('auth:users')->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
 
+    Route::prefix('fif-timer')->group(function(){
+        Route::get('/', [FifteenTimerController::class, 'index'])->name('fif-timer.index');
+        Route::post('/record', [FifteenTimerController::class, 'record'])->name('fif-timer.record');
+    });
+
+    Route::prefix('thi-timer')->group(function(){
+        Route::get('/', [ThirtyTimerController::class, 'index'])->name('thi-timer.index');
+        Route::post('/record', [ThirtyTimerController::class, 'record'])->name('thi-timer.record');
+    });
+
+    Route::get('/timerHistory', [TimerController::class, 'history'])->name('timerHistory');
+
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
