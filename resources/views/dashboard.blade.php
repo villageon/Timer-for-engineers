@@ -24,8 +24,8 @@
                                         <p class="leading-relaxed text-base">あなたは15分で課題を解決しなければいけない。挑戦するならスタートボタンを押してください。</p>
                                     </div>
                                     <div>
-                                        <button type="submit"
-                                            class="flex mx-auto text-white bg-green-500 border-0 mt-5 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg">スタート</button>
+                                        <button type="button" onclick="location.href='{{ route('fif-timer.index') }}'"
+                                            class="flex mx-auto text-white bg-green-500 border-0 mt-5 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg">準備</button>
                                     </div>
                                 </div>
                             </div>
@@ -38,8 +38,8 @@
                                         <p class="leading-relaxed text-base">あなたは30分で課題を解決しなければいけない。挑戦するならスタートボタンを押してください。</p>
                                     </div>
                                     <div>
-                                        <button type="submit"
-                                            class="flex mx-auto text-white bg-green-500 border-0 mt-5 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg">スタート</button>
+                                        <button type="button" onclick="location.href='{{ route('thi-timer.index') }}'"
+                                            class="flex mx-auto text-white bg-green-500 border-0 mt-5 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg">準備</button>
                                     </div>
                                 </div>
                                 <div
