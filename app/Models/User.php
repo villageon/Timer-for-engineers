@@ -9,7 +9,8 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Profile;
 use App\Models\TimerHistory;
-use Ramsey\Uuid\Type\Time;
+use App\Models\Image;
+
 
 class User extends Authenticatable
 {
@@ -51,5 +52,9 @@ class User extends Authenticatable
 
     public function timerHistory(){
         return $this->hasMany(TimerHistory::class);
+    }
+
+    public function image(){
+        return $this->hasOne(Image::class);
     }
 }

@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Image;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Services\ImageService;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-use InterventionImage;
-
 
 class UserController extends Controller
 {
@@ -30,31 +30,39 @@ class UserController extends Controller
         $headerImageFile = $request->header_image;
         $iconImageFile = $request->icon_image;
 
-        if(!is_null($headerImageFile) && $headerImageFile->isValid()){
-            // Storage::putFile('public/headers', $headerImageFile);
+        $headerToStore = ImageService::uploadHeaderImage($headerImageFile);
+        $iconToStore = ImageService::uploadIconImage($iconImageFile);
 
-            $fileNameForHeader = uniqid(rand(),'_');
-            $headerExtension = $headerImageFile->extension();
-            $headerToStore = $fileNameForHeader.'.'.$headerExtension; 
+        $userImage = Image::where('user_id',Auth::id())->first();
 
-            $resizedHeaderImage = InterventionImage::make($headerImageFile)
-            ->resize(1200, 500)->encode();
+        if(isset($userImage)){
 
-            Storage::put('public/headers/' . $headerToStore, $resizedHeaderImage);
+            //既に登録されていたら更新
+            $image = Image::findOrFail(Auth::id());
+
+            if(isset($image->header) && isset($headerToStore)){
+                Storage::delete('public/headers/' . $userImage->header);
+            }
+
+            if(isset($image->icon) && isset($iconToStore)){
+                Storage::delete('public/icons/' . $userImage->icon);
+            }
+
+            $image->header = $headerToStore ?? $userImage->header;
+            $image->icon =  $iconToStore ?? $userImage->icon;
+            $image->save();
+            
+        } else {
+
+            //登録されていなかったら新規作成
+            Image::create([
+                'user_id' => Auth::id(),
+                'header' => $headerToStore ?? '',
+                'icon' => $iconToStore ?? '',
+            ]);
+
         }
 
-        if(!is_null($iconImageFile) && $iconImageFile->isValid()){
-            // Storage::putFile('public/icons', $iconImageFile);
-
-            $fileNameForIcon = uniqid(rand(),'_');
-            $iconExtension = $iconImageFile->extension();
-            $iconToStore = $fileNameForIcon.'.'.$iconExtension; 
-
-            $resizedIconImage = InterventionImage::make($iconImageFile)
-            ->resize(500, 500)->encode();
-
-            Storage::put('public/icons/' . $iconToStore, $resizedIconImage);
-        }
 
         return redirect()->route('profile');
     }
