@@ -36,6 +36,9 @@ Route::middleware('auth:users')->group(function () {
     });
 
     Route::get('/timerHistory', [TimerController::class, 'history'])->name('timerHistory');
+    Route::post('/timerHistory', [TimerController::class, 'total']);
+
+    Route::get('/detail/{id}', [TimerController::class, 'detail'])->name('detail');
 
 });
 

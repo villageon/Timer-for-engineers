@@ -661,6 +661,10 @@ select {
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
 }
+.mx-6 {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
 .ml-3 {
   margin-left: 0.75rem;
 }
@@ -726,6 +730,9 @@ select {
 }
 .-mt-px {
   margin-top: -1px;
+}
+.mr-1 {
+  margin-right: 0.25rem;
 }
 .block {
   display: block;
@@ -805,6 +812,9 @@ select {
 .w-screen {
   width: 100vw;
 }
+.w-2\/3 {
+  width: 66.666667%;
+}
 .max-w-7xl {
   max-width: 80rem;
 }
@@ -881,6 +891,9 @@ select {
 .justify-between {
   justify-content: space-between;
 }
+.justify-around {
+  justify-content: space-around;
+}
 .justify-items-center {
   justify-items: center;
 }
@@ -910,6 +923,9 @@ select {
 }
 .rounded-lg {
   border-radius: 0.5rem;
+}
+.rounded-sm {
+  border-radius: 0.125rem;
 }
 .rounded-l-md {
   border-top-left-radius: 0.375rem;
@@ -995,6 +1011,22 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(31 41 55 / var(--tw-bg-opacity));
 }
+.bg-green-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(74 222 128 / var(--tw-bg-opacity));
+}
+.bg-green-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(21 128 61 / var(--tw-bg-opacity));
+}
+.bg-red-800 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(153 27 27 / var(--tw-bg-opacity));
+}
+.bg-red-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(185 28 28 / var(--tw-bg-opacity));
+}
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
 }
@@ -1015,6 +1047,9 @@ select {
 }
 .p-8 {
   padding: 2rem;
+}
+.p-5 {
+  padding: 1.25rem;
 }
 .px-4 {
   padding-left: 1rem;
@@ -1072,6 +1107,14 @@ select {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
+.px-12 {
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+.px-10 {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
 .pb-10 {
   padding-bottom: 2.5rem;
 }
@@ -1101,6 +1144,9 @@ select {
 }
 .pt-8 {
   padding-top: 2rem;
+}
+.pt-12 {
+  padding-top: 3rem;
 }
 .text-center {
   text-align: center;
@@ -1138,6 +1184,14 @@ select {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
+}
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 .font-medium {
   font-weight: 500;
@@ -1331,6 +1385,10 @@ select {
 .hover\:bg-gray-700:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(55 65 81 / var(--tw-bg-opacity));
+}
+.hover\:bg-green-700:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(21 128 61 / var(--tw-bg-opacity));
 }
 .hover\:text-gray-500:hover {
   --tw-text-opacity: 1;
@@ -1585,6 +1643,16 @@ select {
 
   .md\:mr-5 {
     margin-right: 1.25rem;
+  }
+
+  .md\:px-8 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .md\:px-12 {
+    padding-left: 3rem;
+    padding-right: 3rem;
   }
 }
 @media (min-width: 1024px) {
