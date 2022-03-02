@@ -6,15 +6,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 
-class TimerHistory extends Model
+class Profile extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'user_id',
-        'type',
-        'judge',
-        'comment',
+        'contents',
     ];
 
     public function user()
