@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FifteenTimerController;
 use App\Http\Controllers\ThirtyTimerController;
 use App\Http\Controllers\TimerController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,8 +38,10 @@ Route::middleware('auth:users')->group(function () {
 
     Route::get('/timerHistory', [TimerController::class, 'history'])->name('timerHistory');
     Route::post('/timerHistory', [TimerController::class, 'total']);
-
+    
     Route::get('/detail/{id}', [TimerController::class, 'detail'])->name('detail');
+    
+    Route::get('/profile', [UserController::class, 'profile'])->name('profile');
 
 });
 

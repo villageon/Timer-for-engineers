@@ -64,45 +64,45 @@ class TimerController extends Controller
             $total = 'month';
 
             $fifteen = TimerHistory::where('user_id', Auth::id())
-            ->whereMonth('created_at', date("m"))
+            ->whereMonth('created_at', '=', date("m"))
             ->where('type', Common::MINUTES['fifteen'] )
             ->paginate(3);
     
             $fifCount = TimerHistory::where('user_id', Auth::id())
-            ->whereMonth('created_at', date("m"))
+            ->whereMonth('created_at', '=', date("m"))
             ->where('type', Common::MINUTES['fifteen'])
             ->get()->count();
     
             $fifWinCount = TimerHistory::where('user_id', Auth::id())
-            ->whereMonth('created_at', date("m"))
+            ->whereMonth('created_at', '=', date("m"))
             ->where('type',  Common::MINUTES['fifteen'])
             ->where('judge', Common::JUDGE['winner'])
             ->get()->count();
     
             $fifLoseCount = TimerHistory::where('user_id', Auth::id())
-            ->whereMonth('created_at', date("m"))
+            ->whereMonth('created_at', '=', date("m"))
             ->where('type', Common::MINUTES['fifteen'])
             ->where('judge', Common::JUDGE['loser'])
             ->get()->count();
     
             $thirty = TimerHistory::where('user_id', Auth::id())
-            ->whereMonth('created_at', date("m"))
+            ->whereMonth('created_at', '=', date("m"))
             ->where('type',  Common::MINUTES['thirty'])
             ->paginate(3);
     
             $thiCount = TimerHistory::where('user_id', Auth::id())
-            ->whereMonth('created_at', date("m"))
+            ->whereMonth('created_at', '=', date("m"))
             ->where('type',  Common::MINUTES['thirty'])
             ->get()->count();
     
             $thiWinCount = TimerHistory::where('user_id', Auth::id())
-            ->whereMonth('created_at', date("m"))
+            ->whereMonth('created_at', '=', date("m"))
             ->where('type', Common::MINUTES['thirty'])
             ->where('judge', Common::JUDGE['winner'])
             ->get()->count();
     
             $thiLoseCount = TimerHistory::where('user_id', Auth::id())
-            ->whereMonth('created_at', 3)
+            ->whereMonth('created_at', '=', date("m"))
             ->where('type', Common::MINUTES['thirty'])
             ->where('judge', Common::JUDGE['loser'])
             ->get()->count();
@@ -112,45 +112,45 @@ class TimerController extends Controller
                 $total = 'day';
 
                 $fifteen = TimerHistory::where('user_id', Auth::id())
-                ->whereMonth('created_at', date("d"))
+                ->whereDay('created_at',  '=', date("d"))
                 ->where('type', Common::MINUTES['fifteen'] )
                 ->paginate(3);
         
                 $fifCount = TimerHistory::where('user_id', Auth::id())
-                ->whereMonth('created_at', date("d"))
+                ->whereDay('created_at',  '=', date("d"))
                 ->where('type', Common::MINUTES['fifteen'])
                 ->get()->count();
         
                 $fifWinCount = TimerHistory::where('user_id', Auth::id())
-                ->whereMonth('created_at', date("d"))
+                ->whereDay('created_at',  '=', date("d"))
                 ->where('type',  Common::MINUTES['fifteen'])
                 ->where('judge', Common::JUDGE['winner'])
                 ->get()->count();
         
                 $fifLoseCount = TimerHistory::where('user_id', Auth::id())
-                ->whereMonth('created_at', date("d"))
+                ->whereDay('created_at',  '=', date("d"))
                 ->where('type', Common::MINUTES['fifteen'])
                 ->where('judge', Common::JUDGE['loser'])
                 ->get()->count();
         
                 $thirty = TimerHistory::where('user_id', Auth::id())
-                ->whereMonth('created_at', date("d"))
+                ->whereDay('created_at',  '=', date("d"))
                 ->where('type',  Common::MINUTES['thirty'])
                 ->paginate(3);
         
                 $thiCount = TimerHistory::where('user_id', Auth::id())
-                ->whereMonth('created_at', date("d"))
+                ->whereDay('created_at',  '=', date("d"))
                 ->where('type',  Common::MINUTES['thirty'])
                 ->get()->count();
         
                 $thiWinCount = TimerHistory::where('user_id', Auth::id())
-                ->whereMonth('created_at', date("d"))
+                ->whereDay('created_at',  '=', date("d"))
                 ->where('type', Common::MINUTES['thirty'])
                 ->where('judge', Common::JUDGE['winner'])
                 ->get()->count();
         
                 $thiLoseCount = TimerHistory::where('user_id', Auth::id())
-                ->whereMonth('created_at', date("d"))
+                ->whereDay('created_at',  '=', date("d"))
                 ->where('type', Common::MINUTES['thirty'])
                 ->where('judge', Common::JUDGE['loser'])
                 ->get()->count();
