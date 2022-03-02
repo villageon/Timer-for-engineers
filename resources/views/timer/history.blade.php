@@ -30,7 +30,7 @@
                                         <div class="p-4 lg:w-2/3 mx-auto">
                                           <div class="flex items-center bg-gray-100 bg-opacity-75 p-4 rounded-lg">
                                             <div class="flex-shrink-0 title-font sm:text-2xl text-xl font-medium text-gray-900 mr-2 md:mr-5">
-                                                @if($fif->judge == '1')
+                                                @if($fif->judge == \Constant::JUDGE['winner'] )
                                                 <span class="text-white bg-red-400 py-1 px-3 rounded-lg">勝ち</span>
                                                 @else
                                                 <span class="text-white bg-blue-400 py-1 px-3 rounded-lg">負け</span>
@@ -70,7 +70,7 @@
                                         <div class="p-4 lg:w-2/3 mx-auto">
                                           <div class="flex items-center bg-gray-100 bg-opacity-75 p-4 rounded-lg">
                                             <div class="flex-shrink-0 title-font sm:text-2xl text-xl font-medium text-gray-900 mr-2 md:mr-5">
-                                                @if($thi->judge == '1')
+                                                @if($thi->judge == \Constant::JUDGE['winner'] )
                                                 <span class="text-white bg-red-400 py-1 px-3 rounded-lg">勝ち</span>
                                                 @else
                                                 <span class="text-white bg-blue-400 py-1 px-3 rounded-lg">負け</span>

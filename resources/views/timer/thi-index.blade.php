@@ -31,8 +31,8 @@
                                     <div id="lose-comment-form" class="mt-5 hidden">
                                         <form action="{{ route('thi-timer.record')}}" method="post">
                                             @csrf
-                                            <input type="hidden" name="type" value="2">
-                                            <input type="hidden" name="judge" value="2">
+                                            <input type="hidden" name="type" value="{{ \Constant::MINUTES['thirty'] }}">
+                                            <input type="hidden" name="judge" value="{{ \Constant::JUDGE['loser'] }}">
                                             <div class="p-2 w-3/4 mx-auto">
                                                 <div class="relative">
                                                     <label for="comment" class="leading-7 text-xl text-gray-600">敗者のコメント</label>
@@ -50,8 +50,8 @@
                                     <div id="win-comment-form" class="mt-5 hidden">
                                         <form action="{{ route('thi-timer.record')}}" method="post">
                                             @csrf
-                                            <input type="hidden" name="type" value="2">
-                                            <input type="hidden" name="judge" value="1">
+                                            <input type="hidden" name="type" value="{{ \Constant::MINUTES['thirty'] }}">
+                                            <input type="hidden" name="judge" value="{{ \Constant::JUDGE['winner'] }}">
                                             <div class="p-2 w-3/4 mx-auto">
                                                 <div class="relative">
                                                     <label for="comment" class="leading-7 text-xl text-gray-600">勝者のコメント</label>
