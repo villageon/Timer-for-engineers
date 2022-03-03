@@ -7,7 +7,7 @@
 
     {{-- 期間 --}}
     <div class="pt-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="flex justify-center px-6 bg-white border-b border-gray-200">
                     <a href="{{ route('rank') }}">
@@ -34,7 +34,7 @@
     </div>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
 
@@ -51,17 +51,18 @@
 
                     {{-- 15分用 --}}
                     <section class="text-gray-600 body-font">
-                        <div class="container px-5 py-10 border-b border-gray-200">
+                        <div class="container py-10 border-b border-gray-800">
                             <div class="mb-10 text-center">
                                 <button type="button"
                                     class="flex-shrink-0 text-white bg-green-800 border-0 py-2 px-4 md:px-8 focus:outline-none hover:bg-green-600 rounded text-lg ">15分のランキング</button>
                             </div>
-                            <div class="lg:flex -m-2">
+                        <div class="md:flex">
+                            <div class="md:w-3/5 lg:w-1/2">
                                 {{-- 1~3位 --}}
                                 @foreach($fifOneToThree as $index => $value)
-                                <div class="my-5 lg:mr-2 w-full">
-                                    <h2 class="text-3xl md:text-4xl lg:text-5xl">{{ $index + 1 }}位</h2>
-                                    <div class="h-full flex items-center border-gray-200 border px-4 py-2 rounded-lg">
+                                <div class="mb-2 md:mb-5 lg:mb-8 lg:px-10">
+                                    <h2 class="lg:mb-2 text-3xl md:text-4xl lg:text-5xl">{{ $index + 1 }}位</h2>
+                                    <div class="flex items-center border-gray-400 border px-4 py-2 rounded-lg">
                                         <div class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4 md:mr-10 overflow-hidden">
                                             <x-thumbnail filename="{{ $value['image']['icon'] ?? ''}}" type="icon" />
                                         </div>
@@ -82,11 +83,11 @@
                                 @endforeach
                             </div>
 
-                            {{-- 4位~12位 --}}
-                            <div class="mt-10 lg:mt-15 px-10 md:px-8">
-                                <div class="md:flex flex-wrap">
+                            {{-- 4位~10位 --}}
+                            <div class="md:w-2/5 lg:w-1/2">
+                                <div class="">
                                     @foreach($fifFourToTwelve as $index => $value)
-                                    <div class="mt-8 md:w-1/3">
+                                    <div class="mt-8 px-10 md:px-5 lg:px-10">
                                         <div class="flex items-center border-b border-gray-200">
                                             <div class="flex shrink-0">
                                                 <h2 class="text-xl md:text-2xl lg:text-3xl mr-3 lg:mr-5">{{ $index + 4 }}位</h2>
@@ -110,29 +111,31 @@
                                     @endforeach
                                 </div>
                             </div>
+                        </div>
 
                         </div>
                     </section>
 
                     {{-- 30分用 --}}
                     <section class="text-gray-600 body-font">
-                        <div class="container px-5 py-10 mx-auto border-b border-gray-200">
+                        <div class="container py-10 border-b border-gray-800">
                             <div class="mb-10 text-center">
                                 <button type="button"
                                     class="flex-shrink-0 text-white bg-green-800 border-0 py-2 px-4 md:px-8 focus:outline-none hover:bg-green-600 rounded text-lg ">30分のランキング</button>
                             </div>
-                            <div class="lg:flex -m-2">
-                               {{-- 1~3位 --}}
-                               @foreach($thiOneToThree as $index => $value)
-                               <div class="my-5 lg:mr-2 w-full">
-                                   <h2 class="text-3xl md:text-4xl lg:text-5xl">{{ $index + 1 }}位</h2>
-                                   <div class="h-full flex items-center border-gray-200 border px-4 py-2 rounded-lg">
-                                       <div class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4 md:mr-10 overflow-hidden">
-                                           <x-thumbnail filename="{{ $value['image']['icon'] ?? ''}}" type="icon" />
-                                       </div>
-                                       <div class="flex flex-auto items-center">
-                                           <h2 class="text-lg md:text-2xl lg:text-xl text-gray-900 title-font font-medium mr-3 md:mr-10">{{ $value['user']['name'] }}</h2>
-                                           <p class="text-xl md:text-3xl lg:text-2xl text-red-900">
+                        <div class="md:flex">
+                            <div class="md:w-3/5 lg:w-1/2">
+                                {{-- 1~3位 --}}
+                                @foreach($thiOneToThree as $index => $value)
+                                <div class="mb-2 md:mb-5 lg:mb-8 lg:px-10">
+                                    <h2 class="lg:mb-2 text-3xl md:text-4xl lg:text-5xl">{{ $index + 1 }}位</h2>
+                                    <div class="flex items-center border-gray-400 border px-4 py-2 rounded-lg">
+                                        <div class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4 md:mr-10 overflow-hidden">
+                                            <x-thumbnail filename="{{ $value['image']['icon'] ?? ''}}" type="icon" />
+                                        </div>
+                                        <div class="flex flex-auto items-center">
+                                            <h2 class="text-lg md:text-2xl lg:text-xl text-gray-900 title-font font-medium mr-3 md:mr-10">{{ $value['user']['name'] }}</h2>
+                                            <p class="text-xl md:text-3xl lg:text-2xl text-red-900">
                                                 @if($date === 'year')
                                                 {{ $value['thi_all'] }}%
                                                 @elseif($date === 'month')
@@ -140,18 +143,18 @@
                                                 @elseif($date === 'day')
                                                 {{ $value['thi_day'] }}%
                                                 @endif
-                                           </p>
-                                       </div>
-                                   </div>
-                               </div>
-                               @endforeach
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
                             </div>
 
-                            {{-- 4位~12位 --}}
-                            <div class="mt-10 lg:mt-15 px-10 md:px-8">
-                                <div class="md:flex flex-wrap">
+                            {{-- 4位~10位 --}}
+                            <div class="md:w-2/5 lg:w-1/2">
+                                <div class="">
                                     @foreach($thiFourToTwelve as $index => $value)
-                                    <div class="mt-8 md:w-1/3">
+                                    <div class="mt-8 px-10 md:px-5 lg:px-10">
                                         <div class="flex items-center border-b border-gray-200">
                                             <div class="flex shrink-0">
                                                 <h2 class="text-xl md:text-2xl lg:text-3xl mr-3 lg:mr-5">{{ $index + 4 }}位</h2>
@@ -175,6 +178,7 @@
                                     @endforeach
                                 </div>
                             </div>
+                        </div>
 
                         </div>
                     </section>
