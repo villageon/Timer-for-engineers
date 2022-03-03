@@ -10,7 +10,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <section class="text-gray-600 body-font">
-                        <div class="container px-5 py-10 mx-auto flex flex-col">
+                        <div class="container py-10 mx-auto flex flex-col">
                             <div class="lg:w-4/6 mx-auto">
                                 <div class="rounded-lg overflow-hidden">
 
@@ -18,9 +18,9 @@
                                     <x-thumbnail filename="{{ $user->image->header ?? '' }}" type="header" />
 
                                 </div>
-                                <div class="flex justify-center mt-10">
-                                    <div class="sm:w-2/3 text-center py-8">
-                                        <div class="w-32 md:w-40 rounded-full mx-auto object-cover overflow-hidden">
+                                <div class="flex justify-center mt-5 px-5">
+                                    <div class="sm:w-2/3 text-center border-b py-10 mb-10 border-gray-200">
+                                        <div class="w-32 md:w-40 rounded-full mx-auto object-cover overflow-hidden border border-gray-500">
 
                                             {{-- icon --}}
                                             <x-thumbnail filename="{{ $user->image->icon ?? ''}}" type="icon" />

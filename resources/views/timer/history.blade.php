@@ -93,7 +93,7 @@
 
                     {{-- 30分用 --}}
                     <section class="text-gray-600 body-font">
-                        <div class="container px-5 py-10 mx-auto border-b border-gray-200">
+                        <div class="container px-5 py-10 mx-auto border-b border-gray-200 mb-10">
                             <div class="lg:w-2/3 flex flex-col sm:flex-row sm:items-center sm:mr-5 md:mb-5 items-start mx-auto">
                                 <button
                                     class="flex-shrink-0 text-white bg-green-500 border-0 py-2 px-4 md:px-8 focus:outline-none hover:bg-green-600 rounded text-lg ">30分の戦歴</button>

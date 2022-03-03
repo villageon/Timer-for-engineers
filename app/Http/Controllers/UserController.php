@@ -7,62 +7,79 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Services\ImageService;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
+use Throwable;
 
 class UserController extends Controller
 {
-    public function profile(){
-        
+    public function profile()
+    {
+
         $user = User::findOrFail(Auth::id());
 
         return view('user.profile', compact('user'));
     }
 
-    public function edit(){
+    public function edit()
+    {
         $user = User::findOrFail(Auth::id());
 
         return view('user.edit', compact('user'));
     }
 
-    public function update(Request $request){
-        // dd('update');
+    public function update(Request $request)
+    {
 
-        $headerImageFile = $request->header_image;
-        $iconImageFile = $request->icon_image;
+        try {
+            DB::transaction(function () use ($request) {
 
-        $headerToStore = ImageService::uploadHeaderImage($headerImageFile);
-        $iconToStore = ImageService::uploadIconImage($iconImageFile);
+                //User、Profileの更新
+                $user = User::findOrFail(Auth::id());
+                $user->name = $request->name ?? $user->name;
+                $user->profile->contents = $request->contents ?? $user->profile->contents;
+                $user->save();
 
-        $userImage = Image::where('user_id',Auth::id())->first();
+                //Imageの登録、更新
+                $headerImageFile = $request->header_image;
+                $iconImageFile = $request->icon_image;
 
-        if(isset($userImage)){
+                $headerToStore = ImageService::uploadHeaderImage($headerImageFile);
+                $iconToStore = ImageService::uploadIconImage($iconImageFile);
 
-            //既に登録されていたら更新
-            $image = Image::findOrFail(Auth::id());
+                $userImage = Image::where('user_id', Auth::id())->first();
 
-            if(isset($image->header) && isset($headerToStore)){
-                Storage::delete('public/headers/' . $userImage->header);
-            }
+                if (isset($userImage)) {
+                    //既に登録されていたら更新する
+                    $image = Image::findOrFail(Auth::id());
 
-            if(isset($image->icon) && isset($iconToStore)){
-                Storage::delete('public/icons/' . $userImage->icon);
-            }
+                    if (isset($image->header) && isset($headerToStore)) {
+                        Storage::delete('public/headers/' . $userImage->header);
+                    }
 
-            $image->header = $headerToStore ?? $userImage->header;
-            $image->icon =  $iconToStore ?? $userImage->icon;
-            $image->save();
-            
-        } else {
+                    if (isset($image->icon) && isset($iconToStore)) {
+                        Storage::delete('public/icons/' . $userImage->icon);
+                    }
 
-            //登録されていなかったら新規作成
-            Image::create([
-                'user_id' => Auth::id(),
-                'header' => $headerToStore ?? '',
-                'icon' => $iconToStore ?? '',
-            ]);
+                    $image->header = $headerToStore ?? $userImage->header;
+                    $image->icon =  $iconToStore ?? $userImage->icon;
+                    $image->save();
+                } else {
 
+                    //登録されていなかったら新規作成する
+                    Image::create([
+                        'user_id' => Auth::id(),
+                        'header' => $headerToStore ?? '',
+                        'icon' => $iconToStore ?? '',
+                    ]);
+                }
+            }, 2);
+
+        } catch (Throwable $e) {
+            Log::error($e);
+            throw $e;
         }
-
 
         return redirect()->route('profile');
     }
