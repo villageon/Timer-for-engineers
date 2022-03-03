@@ -17,14 +17,14 @@ class UserController extends Controller
     public function profile()
     {
 
-        $user = User::findOrFail(Auth::id());
+        $user = User::with('profile','image','timerHistory')->findOrFail(Auth::id());
 
         return view('user.profile', compact('user'));
     }
 
     public function edit()
     {
-        $user = User::findOrFail(Auth::id());
+        $user = User::with('profile','image','timerHistory')->findOrFail(Auth::id());
 
         return view('user.edit', compact('user'));
     }
@@ -36,7 +36,7 @@ class UserController extends Controller
             DB::transaction(function () use ($request) {
 
                 //User、Profileの更新
-                $user = User::findOrFail(Auth::id());
+                $user = User::with('profile','image','timerHistory')->findOrFail(Auth::id());
                 $user->name = $request->name ?? $user->name;
                 $user->profile->contents = $request->contents ?? $user->profile->contents;
                 $user->save();

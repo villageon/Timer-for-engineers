@@ -40,6 +40,8 @@ Route::middleware('auth:users')->group(function () {
     Route::post('/timerHistory', [TimerController::class, 'total']);
     
     Route::get('/detail/{id}', [TimerController::class, 'detail'])->name('detail');
+
+    Route::get('/rank', [TimerController::class, 'rank'])->name('rank');
     
     Route::get('/profile', [UserController::class, 'profile'])->name('profile');
     Route::get('/edit', [UserController::class, 'edit'])->name('edit');

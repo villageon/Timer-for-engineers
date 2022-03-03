@@ -27,6 +27,8 @@ class FifteenTimerController extends Controller
             'comment' => $request->comment,
         ]);
 
+       
+
         return view('timer.fif-index');
     }
 

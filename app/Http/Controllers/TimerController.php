@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Constants\Common;
+use App\Services\RankingService;
 
 class TimerController extends Controller
 {
@@ -170,5 +171,15 @@ class TimerController extends Controller
 
         return view('timer.detail', compact('CommentDetail'));
 
+    }
+
+    public function rank(){
+        // dd('ランキングページです');
+
+        RankingService::rank();
+
+        $user = User::with('profile','image','timerHistory')->findOrFail(Auth::id());
+
+        return view('timer.rank', compact('user'));
     }
 }
