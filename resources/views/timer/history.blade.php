@@ -12,21 +12,21 @@
                 <div class="flex justify-center px-6 bg-white border-b border-gray-200">
                     <a href="{{ route('timerHistory')}}">
                         <button type="button"
-                        class="mx-auto text-white bg-green-800 border-0 my-5 py-2 px-4 md:px-8 mr-1 md:mr-5 focus:outline-none hover:bg-green-700 rounded">全て</button>
+                        class="mx-auto text-white bg-green-800 border-0 my-5 py-2 px-4 md:px-8 mr-3 md:mr-5 focus:outline-none hover:bg-green-700 rounded">年間</button>
                     </a>
 
                     <form action="{{ route('timerHistory') }}" method="post">
                         @csrf
                         <input type="hidden" name="total" value="month">
                         <button type="submit"
-                        class="mx-auto text-white bg-green-800 border-0 my-5 py-2 px-4 md:px-8 mr-1 md:mr-5 focus:outline-none hover:bg-green-700 rounded">月間</button>
+                        class="mx-auto text-white bg-green-800 border-0 my-5 py-2 px-4 md:px-8 mr-3 md:mr-5 focus:outline-none hover:bg-green-700 rounded">月間</button>
                     </form>
 
                     <form action="{{ route('timerHistory') }}" method="post">
                         @csrf
                         <input type="hidden" name="total" value="day">
                         <button type="submit"
-                        class="mx-auto text-white bg-green-800 border-0 my-5 py-2 px-4 md:px-8 mr-1 md:mr-5 focus:outline-none hover:bg-green-700 rounded">日間</button>
+                        class="mx-auto text-white bg-green-800 border-0 my-5 py-2 px-4 md:px-8 mr-3 md:mr-5 focus:outline-none hover:bg-green-700 rounded">日間</button>
                     </form>
                 </div>
             </div>
@@ -36,15 +36,15 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="px-6 bg-white border-b border-gray-200">
+                <div class="p-6 bg-white border-b border-gray-200">
                     {{-- 表示期間 --}}
                     <div class="mt-10 flex justify-center">
-                        @if($total == 'all')
-                        <span class="text-2xl text-red-700 border border-4 font-bold border-red-600 py-1 px-10 md:px-15 rounded-lg">全て</span>
+                        @if($total == 'year')
+                        <span class="text-2xl text-green-800 border border-4 font-bold border-green-800 py-1 px-10 md:px-15 rounded-lg">年間</span>
                         @elseif($total == 'month')
-                        <span class="text-2xl text-red-700 border border-4 font-bold border-red-600 py-1 px-10 md:px-15 rounded-lg">今月</span>
+                        <span class="text-2xl text-green-800 border border-4 font-bold border-green-800 py-1 px-10 md:px-15 rounded-lg">今月</span>
                         @elseif($total == 'day')
-                        <span class="text-2xl text-red-700 border border-4 font-bold border-red-600 py-1 px-10 md:px-15 rounded-lg">今日</span>
+                        <span class="text-2xl text-green-800 border border-4 font-bold border-green-800 py-1 px-10 md:px-15 rounded-lg">今日</span>
                         @endif
                     </div>
 
@@ -53,7 +53,7 @@
                         <div class="container px-5 py-10 mx-auto border-b border-gray-200">
                             <div class="lg:w-2/3 flex flex-col sm:flex-row sm:items-center sm:mr-5 md:mb-5 items-start mx-auto">
                                 <button
-                                    class="flex-shrink-0 text-white bg-green-500 border-0 py-2 px-4 md:px-8 focus:outline-none hover:bg-green-600 rounded text-lg ">15分の戦歴</button>
+                                    class="flex-shrink-0 text-white bg-red-800 border-0 py-2 px-4 md:px-8 focus:outline-none hover:bg-red-600 rounded text-lg ">15分の戦歴</button>
                                 <h1 class="flex-grow text-6xl font-medium title-font text-gray-900 my-5 md:my-0 md:ml-10 ">
                                     <span class="mr-1">{{ $fifCount }}</span><span class="text-lg mr-1">戦</span>
                                     <span class="mr-1">{{ $fifWinCount }}</span><span class="text-lg mr-1">勝</span>
@@ -93,10 +93,10 @@
 
                     {{-- 30分用 --}}
                     <section class="text-gray-600 body-font">
-                        <div class="container px-5 py-10 mx-auto border-b border-gray-200">
+                        <div class="container px-5 py-10 mx-auto border-b border-gray-200 mb-10">
                             <div class="lg:w-2/3 flex flex-col sm:flex-row sm:items-center sm:mr-5 md:mb-5 items-start mx-auto">
                                 <button
-                                    class="flex-shrink-0 text-white bg-green-500 border-0 py-2 px-4 md:px-8 focus:outline-none hover:bg-green-600 rounded text-lg ">30分の戦歴</button>
+                                    class="flex-shrink-0 text-white bg-red-800 border-0 py-2 px-4 md:px-8 focus:outline-none hover:bg-red-600 rounded text-lg ">30分の戦歴</button>
                                 <h1 class="flex-grow text-6xl font-medium title-font text-gray-900 my-5 md:my-0 md:ml-10 ">
                                     <span class="mr-1">{{ $thiCount }}</span><span class="text-lg mr-1">戦</span>
                                     <span class="mr-1">{{ $thiWinCount }}</span><span class="text-lg mr-1">勝</span>

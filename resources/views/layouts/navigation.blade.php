@@ -23,7 +23,7 @@
                     <x-nav-link :href="route('timerHistory')" :active="request()->routeIs('timerHistory')">
                         {{ __('戦歴') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('rank')" :active="request()->routeIs('rank')">
                         {{ __('ランキング') }}
                     </x-nav-link>
                 </div>
@@ -83,7 +83,7 @@
             <x-responsive-nav-link :href="route('timerHistory')" :active="request()->routeIs('timerHistory')">
                 {{ __('戦歴') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+            <x-responsive-nav-link :href="route('rank')" :active="request()->routeIs('rank')">
                 {{ __('ランキング') }}
             </x-responsive-nav-link>
         </div>
