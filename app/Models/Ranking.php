@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
+use App\Models\Profile;
+use App\Models\Image;
 
 class Ranking extends Model
 {
@@ -22,6 +24,17 @@ class Ranking extends Model
 
     public function user()
     {
-        return $this->belongsTo(Ranking::class);
+        return $this->belongsTo(User::class);
     }
+
+    public function profile()
+    {
+        return $this->belongsTo(Profile::class);
+    }
+
+    public function image()
+    {
+        return $this->belongsTo(Image::class);
+    }
+
 }
