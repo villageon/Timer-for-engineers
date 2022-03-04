@@ -200,10 +200,10 @@ class TimerController extends Controller
         ->get()->toArray();
 
         $fifOneToThree = array_slice($fifData, 0, 3);
-        $fifFourToTwelve = array_slice($fifData, 3, 9);
+        $fifFourToTwelve = array_slice($fifData, 3, 7);
 
         $thiOneToThree = array_slice($thiData, 0, 3);
-        $thiFourToTwelve = array_slice($thiData, 3, 9);   
+        $thiFourToTwelve = array_slice($thiData, 3, 7);   
 
         return view('timer.rank', compact('date', 'fifOneToThree', 'fifFourToTwelve', 'thiOneToThree', 'thiFourToTwelve'));
     }
@@ -223,10 +223,10 @@ class TimerController extends Controller
             ->get()->toArray();
     
             $fifOneToThree = array_slice($fifData, 0, 3);
-            $fifFourToTwelve = array_slice($fifData, 3, 9);
+            $fifFourToTwelve = array_slice($fifData, 3, 7);
     
             $thiOneToThree = array_slice($thiData, 0, 3);
-            $thiFourToTwelve = array_slice($thiData, 3, 9);
+            $thiFourToTwelve = array_slice($thiData, 3, 7);
 
         } elseif($request->date === 'day'){
 
@@ -241,10 +241,10 @@ class TimerController extends Controller
             ->get()->toArray();
     
             $fifOneToThree = array_slice($fifData, 0, 3);
-            $fifFourToTwelve = array_slice($fifData, 3, 9);
+            $fifFourToTwelve = array_slice($fifData, 3, 7);
     
             $thiOneToThree = array_slice($thiData, 0, 3);
-            $thiFourToTwelve = array_slice($thiData, 3, 9);  
+            $thiFourToTwelve = array_slice($thiData, 3, 7);  
             
         }
 
