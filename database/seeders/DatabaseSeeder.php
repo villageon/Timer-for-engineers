@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
 
         // User::factory(100)->create();
         // Profile::factory(100)->create();
-        Ranking::factory(1000)->create();
-        TimerHistory::factory(10000)->create();
+        Ranking::factory(100)->create();
+        TimerHistory::factory(1000)->create();
     }
 }

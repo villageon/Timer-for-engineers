@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Image;
+use App\Models\Profile;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Services\ImageService;
@@ -35,11 +36,20 @@ class UserController extends Controller
         try {
             DB::transaction(function () use ($request) {
 
-                //User、Profileの更新
-                $user = User::with('profile','image','timerHistory')->findOrFail(Auth::id());
+                $user = User::findOrFail(Auth::id());
                 $user->name = $request->name ?? $user->name;
-                $user->profile->contents = $request->contents ?? $user->profile->contents;
                 $user->save();
+
+                $profile = Profile::where('user_id', Auth::id())->first();
+                if(!isset($profile)){
+                    Profile::create([
+                        'user_id' => Auth::id(),
+                        'contents' => $request->contents ?? '自己紹介を入力してください。',
+                    ]);
+                } else {
+                    $profile->contents = $request->contents ?? '自己紹介を入力してください。';
+                    $profile->save();
+                }
 
                 //Imageの登録、更新
                 $headerImageFile = $request->header_image;
@@ -52,7 +62,7 @@ class UserController extends Controller
 
                 if (isset($userImage)) {
                     //既に登録されていたら更新する
-                    $image = Image::findOrFail(Auth::id());
+                    $image = Image::where('user_id', Auth::id())->first();
 
                     if (isset($image->header) && isset($headerToStore)) {
                         Storage::delete('public/headers/' . $userImage->header);

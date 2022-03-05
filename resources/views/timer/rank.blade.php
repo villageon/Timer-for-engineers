@@ -10,23 +10,23 @@
         <div class="max-w-7xl mx-auto">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="flex justify-center px-6 bg-white border-b border-gray-200">
-                    <a href="{{ route('rank') }}">
-                        <button type="button"
-                            class="mx-auto text-white bg-red-800 border-0 my-5 py-2 px-4 md:px-8 mr-3 md:mr-5 focus:outline-none hover:bg-red-700 rounded">年間</button>
-                    </a>
 
-                    <form action="{{ route('rank') }}" method="post">
-                        @csrf
-                        <input type="hidden" name="date" value="month">
+                    <form action="{{ route('rank') }}" method="get">
+                        <input type="hidden" name="date" value="year">
                         <button type="submit"
-                            class="mx-auto text-white bg-red-800 border-0 my-5 py-2 px-4 md:px-8 mr-3 md:mr-5 focus:outline-none hover:bg-red-700 rounded">月間</button>
+                            class="mx-auto text-white bg-red-800 border-0 my-5 py-2 px-4 md:px-8 mr-3 md:mr-5 focus:outline-none hover:bg-red-700 rounded">今年</button>
                     </form>
 
-                    <form action="{{ route('rank') }}" method="post">
-                        @csrf
+                    <form action="{{ route('rank') }}" method="get">
+                        <input type="hidden" name="date" value="month">
+                        <button type="submit"
+                            class="mx-auto text-white bg-red-800 border-0 my-5 py-2 px-4 md:px-8 mr-3 md:mr-5 focus:outline-none hover:bg-red-700 rounded">今月</button>
+                    </form>
+
+                    <form action="{{ route('rank') }}" method="get">
                         <input type="hidden" name="date" value="day">
                         <button type="submit"
-                            class="mx-auto text-white bg-red-800 border-0 my-5 py-2 px-4 md:px-8 mr-3 md:mr-5 focus:outline-none hover:bg-red-700 rounded">日間</button>
+                            class="mx-auto text-white bg-red-800 border-0 my-5 py-2 px-4 md:px-8 mr-3 md:mr-5 focus:outline-none hover:bg-red-700 rounded">今日</button>
                     </form>
                 </div>
             </div>
@@ -40,11 +40,11 @@
 
                     {{-- 表示期間 --}}
                     <div class="mt-10 flex justify-center">
-                        @if($date == 'year')
+                        @if($date === 'year')
                         <span class="text-2xl text-red-800 border border-4 font-bold border-red-800 py-1 px-10 md:px-15 rounded-lg">年間</span>
-                        @elseif($date == 'month')
+                        @elseif($date === 'month')
                         <span class="text-2xl text-red-800 border border-4 font-bold border-red-800 py-1 px-10 md:px-15 rounded-lg">今月</span>
-                        @elseif($date == 'day')
+                        @elseif($date === 'day')
                         <span class="text-2xl text-red-800 border border-4 font-bold border-red-800 py-1 px-10 md:px-15 rounded-lg">今日</span>
                         @endif
                     </div>

@@ -21,6 +21,7 @@ class TimerHistoryFactory extends Factory
             'type' => $this->faker->numberBetween(1, 2),
             'judge' => $this->faker->numberBetween(1, 2),
             'comment' => $this->faker->realText(20),
+            'created_at' => $this->faker->dateTimeBetween($startDate = '-4 week', $endDate = 'now'),
         ];
     }
 }

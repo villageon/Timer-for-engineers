@@ -22,7 +22,7 @@
             @endif
         </div>
 
-        <div class="hidden sm:block">
+        <div class="hidden sm:block mx-auto">
             <div class="mb-2">
                 <p class="text-sm text-gray-700 leading-5">
                     <span class="font-medium">{{ $paginator->total() }}</span>
