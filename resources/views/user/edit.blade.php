@@ -27,7 +27,7 @@
                                     <div class="relative">
                                         <label for="contents" class="leading-7 text-sm text-gray-600">自己紹介文</label>
                                         <textarea id="contents" name="contents" rows="10"
-                                            class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-green-500 focus:bg-white focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">{{ $user->profile->contents }}</textarea>
+                                            class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-green-500 focus:bg-white focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">@if(!isset($user->profile->contents))  @else{{ $user->profile->contents }}@endif</textarea>
                                     </div>
                                 </div>
 

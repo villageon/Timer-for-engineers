@@ -30,7 +30,13 @@
                                             <h2 class="font-medium title-font mt-4 text-gray-900 text-lg">
                                                 {{ $user->name }}</h2>
                                             <div class="w-12 h-1 bg-green-500 rounded mt-2 mb-4"></div>
-                                            <p class="text-base">{{ $user->profile->contents }}</p>
+                                            <p class="text-base">
+                                                @if(!isset($user->profile->contents))
+                                                自己紹介を入力してください。
+                                                @else
+                                                {{ $user->profile->contents}}
+                                                @endif
+                                            </p>
                                         </div>
                                     </div>
                                 </div>

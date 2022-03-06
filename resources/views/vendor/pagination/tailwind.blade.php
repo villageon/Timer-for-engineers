@@ -22,8 +22,8 @@
             @endif
         </div>
 
-        <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
-            <div>
+        <div class="hidden sm:block mx-auto">
+            <div class="mb-2">
                 <p class="text-sm text-gray-700 leading-5">
                     <span class="font-medium">{{ $paginator->total() }}</span>
                     件中
