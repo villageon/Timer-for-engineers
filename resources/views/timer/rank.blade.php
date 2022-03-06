@@ -34,7 +34,7 @@
     </div>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto">
+        <div class="max-w-5xl mx-auto">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
 
@@ -51,7 +51,7 @@
 
                     {{-- 15分用 --}}
                     <section class="text-gray-600 body-font">
-                        <div class="container py-10 border-b border-gray-800">
+                        <div class="container py-10 border-b border-gray-800 mx-auto">
                             <div class="mb-10 text-center">
                                 <button type="button"
                                     class="flex-shrink-0 text-white bg-green-800 border-0 py-2 px-4 md:px-8 focus:outline-none hover:bg-green-600 rounded text-lg ">15分のランキング</button>
@@ -67,7 +67,10 @@
                                             <x-thumbnail filename="{{ $value['image']['icon'] ?? ''}}" type="icon" />
                                         </div>
                                         <div class="flex flex-auto items-center">
-                                            <h2 class="text-lg md:text-2xl lg:text-xl text-gray-900 title-font font-medium mr-3 md:mr-10">{{ $value['user']['name'] }}</h2>
+                                            <h2 class="text-lg md:text-2xl lg:text-xl text-gray-900 title-font font-medium mr-3 md:mr-10">
+                                                <a href="{{ route('profile.show', ['id' => $value['user']['id']]) }}">
+                                                    {{ $value['user']['name'] }}</h2>
+                                                </a>
                                             <p class="text-xl md:text-3xl lg:text-2xl text-red-900">
                                                 @if($date === 'year')
                                                 {{ $value['fif_all'] }}%
@@ -118,7 +121,7 @@
 
                     {{-- 30分用 --}}
                     <section class="text-gray-600 body-font">
-                        <div class="container py-10 border-b border-gray-800">
+                        <div class="container py-10 border-b border-gray-800 mx-auto">
                             <div class="mb-10 text-center">
                                 <button type="button"
                                     class="flex-shrink-0 text-white bg-green-800 border-0 py-2 px-4 md:px-8 focus:outline-none hover:bg-green-600 rounded text-lg ">30分のランキング</button>

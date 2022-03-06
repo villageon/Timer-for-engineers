@@ -29,12 +29,12 @@ class Ranking extends Model
 
     public function profile()
     {
-        return $this->belongsTo(Profile::class);
+        return $this->hasOne(Profile::class, 'user_id', 'user_id');
     }
 
     public function image()
     {
-        return $this->belongsTo(Image::class);
+        return $this->hasOne(Image::class, 'user_id', 'user_id');
     }
 
 }
