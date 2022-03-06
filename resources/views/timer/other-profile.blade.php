@@ -1,0 +1,50 @@
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('プロフィール') }}
+        </h2>
+    </x-slot>
+
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 bg-white border-b border-gray-200">
+                    <section class="text-gray-600 body-font">
+                        <div class="container py-10 mx-auto flex flex-col">
+                            <div class="lg:w-4/6 mx-auto">
+                                <div class="rounded-lg overflow-hidden">
+
+                                    {{-- header --}}
+                                    <x-thumbnail filename="{{ $user->image->header ?? '' }}" type="header" />
+
+                                </div>
+                                <div class="flex justify-center mt-5 px-5">
+                                    <div class="sm:w-2/3 text-center border-b py-10 mb-10 border-gray-200">
+                                        <div class="w-32 md:w-40 rounded-full mx-auto object-cover overflow-hidden border border-gray-500">
+
+                                            {{-- icon --}}
+                                            <x-thumbnail filename="{{ $user->image->icon ?? ''}}" type="icon" />
+
+                                        </div>
+                                        <div class="flex flex-col items-center text-center justify-center">
+                                            <h2 class="font-medium title-font mt-4 text-gray-900 text-lg">
+                                                {{ $user->name }}</h2>
+                                            <div class="w-12 h-1 bg-green-500 rounded mt-2 mb-4"></div>
+                                            <p class="text-base">
+                                                @if(!isset($user->profile->contents))
+                                                自己紹介を入力してください。
+                                                @else
+                                                {{ $user->profile->contents}}
+                                                @endif
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</x-app-layout>

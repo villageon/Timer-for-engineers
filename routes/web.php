@@ -45,8 +45,12 @@ Route::middleware('auth:users')->group(function () {
     // Route::post('/rank', [TimerController::class, 'rankDate']);
     
     Route::get('/profile', [UserController::class, 'profile'])->name('profile');
+
     Route::get('/edit', [UserController::class, 'edit'])->name('edit');
+
     Route::post('/update', [UserController::class, 'update'])->name('profile.update');
+
+    Route::get('/show/{id}', [TimerController::class, 'show'])->name('profile.show');
 
 });
 

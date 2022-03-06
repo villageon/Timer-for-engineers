@@ -52,16 +52,16 @@
                     {{-- 15分用 --}}
                     <section class="text-gray-600 body-font">
                         <div class="container px-5 py-10 mx-auto border-b border-gray-200">
-                            <div class="lg:w-2/3 flex flex-col sm:flex-row sm:items-center sm:mr-5 md:mb-5 items-start mx-auto">
+                            <div class="lg:w-2/3 sm:flex justify-center items-center mx-auto mb-10 text-center">
                                 <button
                                     class="flex-shrink-0 text-white bg-red-800 border-0 py-2 px-4 md:px-8 focus:outline-none hover:bg-red-600 rounded text-lg ">15分の戦歴</button>
-                                <h1 class="flex flex-wrap text-6xl font-medium title-font text-gray-900 my-5 md:my-0 md:ml-10 ">
-                                    <div>
-                                        <span class="mr-1">{{ $fifCount }}</span><span class="text-lg mr-2">戦</span>
+                                <h1 class="flex flex-wrap justify-center text-6xl font-medium title-font text-gray-900 my-5 md:my-0 md:ml-10 ">
+                                    <div class="mr-4">
+                                        <span class="mr-1">{{ $fifCount }}<span class="text-lg mr-1">戦</span></span>
                                     </div>
                                     <div class="">
-                                        <span class="mr-1">{{ $fifWinCount }}</span><span class="text-lg mr-2">勝</span>
-                                        <span class="mr-1">{{ $fifLoseCount }}</span><span class="text-lg mr-2">敗</span>
+                                        <span class="mr-1">{{ $fifWinCount }}<span class="text-lg mr-1">勝</span></span>
+                                        <span class="mr-1">{{ $fifLoseCount }}<span class="text-lg mr-1">敗</span></span>
                                     </div>
                                 </h1>                      
                             </div>
@@ -101,16 +101,16 @@
                     {{-- 30分用 --}}
                     <section class="text-gray-600 body-font">
                         <div class="container px-5 py-10 mx-auto border-b border-gray-200 mb-10">
-                            <div class="lg:w-2/3 flex flex-col sm:flex-row sm:items-center sm:mr-5 md:mb-5 items-start mx-auto">
+                            <div class="lg:w-2/3 sm:flex justify-center items-center mx-auto mb-10 text-center">
                                 <button
                                     class="flex-shrink-0 text-white bg-red-800 border-0 py-2 px-4 md:px-8 focus:outline-none hover:bg-red-600 rounded text-lg ">30分の戦歴</button>
-                                    <h1 class="flex flex-wrap text-6xl font-medium title-font text-gray-900 my-5 md:my-0 md:ml-10 ">
-                                        <div>
-                                            <span class="mr-1">{{ $thiCount }}</span><span class="text-lg mr-2">戦</span>
+                                    <h1 class="flex flex-wrap justify-center text-6xl font-medium title-font text-gray-900 my-5 md:my-0 md:ml-10 ">
+                                        <div class="mr-4">
+                                            <span class="mr-1">{{ $thiCount }}<span class="text-lg mr-1">戦</span></span>
                                         </div>
                                         <div class="">
-                                            <span class="mr-1">{{ $thiWinCount }}</span><span class="text-lg mr-2">勝</span>
-                                            <span class="mr-1">{{ $thiLoseCount }}</span><span class="text-lg mr-2">敗</span>
+                                            <span class="mr-1">{{ $thiWinCount }}<span class="text-lg mr-1">勝</span></span>
+                                            <span class="mr-1">{{ $thiLoseCount }}<span class="text-lg mr-1">敗</span></span>
                                         </div>
                                     </h1>                        
                             </div>

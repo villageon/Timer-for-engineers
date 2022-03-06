@@ -159,7 +159,7 @@ class TimerController extends Controller
             ->where('type', Common::MINUTES['thirty'])
             ->where('judge', Common::JUDGE['loser'])
             ->get()->count();
-            
+
         }
 
        
@@ -206,8 +206,21 @@ class TimerController extends Controller
         $fifFourToTwelve = array_slice($fifData, 3, 7);
 
         $thiOneToThree = array_slice($thiData, 0, 3);
-        $thiFourToTwelve = array_slice($thiData, 3, 7);   
+        $thiFourToTwelve = array_slice($thiData, 3, 7);
+
+
 
         return view('timer.rank', compact('date', 'fifOneToThree', 'fifFourToTwelve', 'thiOneToThree', 'thiFourToTwelve'));
+    }
+
+    public function show($id){
+
+        $user = User::with('profile','image','timerHistory')->findOrFail($id);
+
+        if($id == Auth::id()){
+            return view('user.profile', compact('user'));
+        }
+            return view('timer.other-profile', compact('user'));
+
     }
 }
