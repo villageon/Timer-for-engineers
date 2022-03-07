@@ -18,15 +18,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call([
-            // UserSeeder::class,
-            // ProfileSeeder::class,
-            // TimerHistorySeeder::class,
-        ]);
-
         // User::factory(100)->create();
         // Profile::factory(100)->create();
         Ranking::factory(100)->create();
         TimerHistory::factory(1000)->create();
+        
+        $this->call([
+            // UserSeeder::class,
+            // ProfileSeeder::class,
+            // TimerHistorySeeder::class,
+            MenterSeeder::class,
+        ]);
     }
 }

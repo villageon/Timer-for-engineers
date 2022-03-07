@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Image;
+use App\Models\Menter;
 use App\Models\Profile;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -18,7 +19,7 @@ class UserController extends Controller
     public function profile()
     {
 
-        $user = User::with('profile','image','timerHistory')->findOrFail(Auth::id());
+        $user = User::with('profile','image','timerHistory','menter')->findOrFail(Auth::id());
 
         return view('user.profile', compact('user'));
     }
@@ -36,10 +37,26 @@ class UserController extends Controller
         try {
             DB::transaction(function () use ($request) {
 
+                //user
                 $user = User::findOrFail(Auth::id());
                 $user->name = $request->name ?? $user->name;
                 $user->save();
 
+                //menter
+                $menter = Menter::where('user_id', Auth::id())->first();
+                if(!isset($menter)){
+                    Menter::create([
+                        'user_id' => Auth::id(),
+                        'm_name' => $request->m_name ?? 'メンターを設定してください。',
+                        'm_email' => $request->m_email ?? 'メンターのメールアドレスを設定してください。',
+                    ]);
+                } else {
+                    $menter->m_name = $request->m_name ?? $menter->m_name;
+                    $menter->m_email = $request->m_email ?? $menter->m_email;
+                    $menter->save();
+                }
+
+                //profile
                 $profile = Profile::where('user_id', Auth::id())->first();
                 if(!isset($profile)){
                     Profile::create([
@@ -47,11 +64,11 @@ class UserController extends Controller
                         'contents' => $request->contents ?? '自己紹介を入力してください。',
                     ]);
                 } else {
-                    $profile->contents = $request->contents ?? '自己紹介を入力してください。';
+                    $profile->contents = $request->contents ?? $profile->contents;
                     $profile->save();
                 }
 
-                //Imageの登録、更新
+                //image
                 $headerImageFile = $request->header_image;
                 $iconImageFile = $request->icon_image;
 

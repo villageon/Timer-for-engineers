@@ -142,5 +142,8 @@ return [
         'shop_id' => 'ShopID',
         'category' => 'カテゴリー',
         'is_selling' => '販売中もしくは停止中',
+        'm_email' => 'メンターのメールアドレス',
+        'm_name' => 'メンターの名前',
+        'comment' => 'コメント',
     ],
 ];
