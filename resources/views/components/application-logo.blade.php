@@ -1,1 +1,1 @@
-<img src="{{ asset('images/timer.png')}}" alt="">
+<img id="logo" class="" src="{{ asset('images/timer.png')}}" alt="">
