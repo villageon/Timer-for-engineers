@@ -47,6 +47,22 @@
                                     </div>
                                 </div>
 
+                                <div class="-m-2 mb-5 md:w-1/2 mx-auto">
+                                    <div class="relative">
+                                        <label for="m_name" class="leading-7 text-sm text-gray-600">メンター名</label>
+                                        <input type="text" id="m_name" name="m_name" required value="{{ $user->menter->m_name }}"
+                                            class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-green-500 focus:bg-white focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                    </div>
+                                </div>
+
+                                <div class="-m-2 mb-5 md:w-1/2 mx-auto">
+                                    <div class="relative">
+                                        <label for="m_email" class="leading-7 text-sm text-gray-600">メンターのメールアドレス</label>
+                                        <input type="text" id="m_email" name="m_email" required value="{{ $user->menter->m_email }}"
+                                            class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-green-500 focus:bg-white focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                    </div>
+                                </div>
+
                                 <div class="flex justify-center items-center my-5">
                                     <div class="mr-5">
                                         <button type="button" onclick="location.href='{{ route('profile') }}'"

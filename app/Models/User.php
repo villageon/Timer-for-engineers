@@ -11,6 +11,7 @@ use App\Models\Profile;
 use App\Models\TimerHistory;
 use App\Models\Image;
 use App\Models\Ranking;
+use App\Models\Menter;
 
 
 class User extends Authenticatable
@@ -33,18 +34,22 @@ class User extends Authenticatable
     ];
 
     public function profile(){
-        return $this->hasOne(Profile::class);
+        return $this->hasOne(Profile::class, 'user_id');
     }
 
     public function timerHistory(){
-        return $this->hasMany(TimerHistory::class);
+        return $this->hasMany(TimerHistory::class, 'user_id');
     }
 
     public function image(){
-        return $this->hasOne(Image::class);
+        return $this->hasOne(Image::class, 'user_id');
     }
 
     public function ranking(){
-        return $this->hasOne(Ranking::class);
+        return $this->hasOne(Ranking::class, 'user_id');
+    }
+
+    public function menter(){
+        return $this->hasOne(Menter::class, 'user_id');
     }
 }
