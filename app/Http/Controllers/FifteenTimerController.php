@@ -4,15 +4,14 @@ namespace App\Http\Controllers;
 
 use Throwable;
 use App\Models\Menter;
-use Illuminate\Http\Request;
 use App\Models\TimerHistory;
 use App\Models\User;
+use App\Jobs\SendMenterMail;
 use App\Services\RankingService;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Mail;
-use App\Mail\MenterMail;
 
 class FifteenTimerController extends Controller
 {
@@ -67,10 +66,16 @@ class FifteenTimerController extends Controller
                     'comment' => ['required', 'string'],
                 ]);
                 
-                //メール送信機能
+                // //メールを同期的に送信
+                // $user = User::findOrFail(Auth::id());
+                // Mail::to($request->m_email)->send(new MenterMail($user->name, $request->m_name, $request->type, $request->judge, $request->comment));
+                // $mail_success = true;
+
+                //メールを非同期に送信
                 $user = User::findOrFail(Auth::id());
-                Mail::to($request->m_email)->send(new MenterMail($user->name, $request->m_name, $request->type, $request->judge, $request->comment));
+                SendMenterMail::dispatch($user, $request->all());
                 $mail_success = true;
+
             }
         }
 
