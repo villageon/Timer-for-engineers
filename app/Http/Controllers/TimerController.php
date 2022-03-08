@@ -215,7 +215,7 @@ class TimerController extends Controller
 
     public function show($id){
 
-        $user = User::with('profile','image','timerHistory')->findOrFail($id);
+        $user = User::with('profile','image','timerHistory', 'menter')->findOrFail($id);
 
         if($id == Auth::id()){
             return view('user.profile', compact('user'));
