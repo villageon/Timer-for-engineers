@@ -17,9 +17,9 @@
     <tr class="mb-2">
       <th class="mr-5 flex shrink-0">結果:</th>
       <td>
-        @if($type == \Constant::JUDGE['loser'])
+        @if($judge == \Constant::JUDGE['loser'])
         制限時間内に解決しませんでした。
-        @elseif($type == \Constant::JUDGE['winner'])
+        @elseif($judge == \Constant::JUDGE['winner'])
         制限時間内に解決しました。
         @endif
       </td>
