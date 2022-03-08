@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="font-semibold text-xl text-white leading-tight">
             {{ __('プロフィール') }}
         </h2>
     </x-slot>
@@ -15,7 +15,7 @@
                                     {{-- header --}}
                                     <x-thumbnail filename="{{ $user->image->header ?? '' }}" type="header" />
                                 <div class="flex justify-center m-10 ">
-                                    <div class="md:flex items-center sm:w-2/3 text-center border-b py-10 border-gray-400">
+                                    <div class="md:flex items-center sm:w-2/3 text-center pt-10 border-gray-400">
                                         <div class="w-32 h-32 md:w-40 md:h-40  rounded-full mx-auto object-cover overflow-hidden border border-gray-500">
 
                                             {{-- icon --}}
@@ -24,10 +24,10 @@
                                         </div>
                                         <div class="md:w-1/2">
                                             <div class="">
-                                                <h2 class="font-medium title-font mt-4 text-gray-900 text-lg md:text-2xl lg:text-4lx">
+                                                <h2 class="font-medium title-font mt-4 text-gray-900 text-lg md:text-2xl lg:text-4xl">
                                                     {{ $user->name }}</h2>
-                                                <div class="w-12 h-1 bg-green-500 rounded mt-2 mb-4 mx-auto"></div>
-                                                <h4 class="word-wrap text-md md:text-lg lg:text-xl">
+                                                <div class="w-12 h-1 bg-gradient-to-r from-teal-200 via-teal-400 to-teal-500 rounded mt-2 mb-4 mx-auto"></div>
+                                                <h4 class="text-md md:text-lg lg:text-xl">
                                                     @if(!isset($user->profile->contents))
                                                     自己紹介を入力してください。
                                                     @else
@@ -45,6 +45,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="w-40 md:w-80 h-1 bg-gradient-to-r from-teal-200 via-teal-400 to-teal-500 rounded mt-2 mb-4 mx-auto"></div>
                             <div class="flex justify-center py-5">
                                 <a href="{{ route('edit') }}">
                                     <button type="button"
