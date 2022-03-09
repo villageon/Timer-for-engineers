@@ -249,12 +249,9 @@
                             WinnerSubmit.classList.remove("bg-green-700", "hover:bg-green-800")
                             WinnerSubmit.classList.add("bg-yellow-700", "hover:bg-yellow-800")
 
-                            Logo.classList.add("hidden")
-                            WarningLogo.classList.remove("hidden")
-
 
                             //1分を切った時
-                            if (minutes < 1) {
+                            if (minutes < 4) {
                                 WarningTimer.classList.add("hidden")
                                 DangerTimer.classList.remove("hidden")
                                 WarningTitle.classList.add("hidden")

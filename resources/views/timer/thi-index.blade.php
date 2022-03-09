@@ -31,13 +31,13 @@
                                 </div>
                                 <div>
                                     <div class="flex-grow text-center mt-5">
-                                        <h2 id="title" class="text-gray-900 text-lg title-font font-medium mb-2">
+                                        <h2 id="title" class="text-gray-900 text-lg md:text-xl lg:text-2xl title-font font-medium mb-2">
                                             30分間の勝負です!!</h2>
                                         <h2 id="warning-title"
-                                            class="hidden text-yellow-800 text-lg title-font font-medium mb-2">
+                                            class="hidden text-yellow-800 text-lg md:text-xl lg:text-2xl title-font font-medium mb-2">
                                             残り5分です!!</h2>
                                         <h2 id="danger-title"
-                                            class="hidden text-red-800 text-lg title-font font-medium mb-2">残り1分です!!
+                                            class="hidden text-red-800 text-lg md:text-xl lg:text-2xl title-font font-medium mb-2">残り1分です!!
                                         </h2>
                                     </div>
 

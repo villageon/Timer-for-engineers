@@ -54,14 +54,14 @@
                         <div class="container px-5 py-10 mx-auto border-b border-gray-200">
                             <div class="lg:w-2/3 sm:flex justify-center items-center mx-auto mb-10 text-center">
                                 <button
-                                    class="flex-shrink-0 text-white bg-red-800 border-0 py-2 px-4 md:px-8 focus:outline-none hover:bg-red-600 rounded text-lg ">15分の戦歴</button>
-                                <h1 class="flex flex-wrap justify-center text-6xl font-medium title-font text-gray-900 my-5 md:my-0 md:ml-10 ">
-                                    <div class="mr-4">
-                                        <span class="mr-1">{{ $fifCount }}<span class="text-lg mr-1">戦</span></span>
+                                    class="flex-shrink-0 text-white bg-gradient-to-r from-green-400 via-green-500 to-green-700 border-0 py-2 px-4 md:px-8 rounded text-lg">15分の戦歴</button>
+                                <h1 class="flex flex-wrap justify-center text-5xl sm:text-7xl font-medium title-font text-gray-900 my-5 md:my-0 md:ml-10 ">
+                                    <div class="mr-2">
+                                        <span class="">{{ $fifCount }}<span class="text-lg">戦</span></span>
                                     </div>
-                                    <div class="">
-                                        <span class="mr-1">{{ $fifWinCount }}<span class="text-lg mr-1">勝</span></span>
-                                        <span class="mr-1">{{ $fifLoseCount }}<span class="text-lg mr-1">敗</span></span>
+                                    <div>
+                                        <span class="mr-1">{{ $fifWinCount }}<span class="text-lg">勝</span></span>
+                                        <span class="mr-1">{{ $fifLoseCount }}<span class="text-lg">敗</span></span>
                                     </div>
                                 </h1>                      
                             </div>
@@ -103,16 +103,16 @@
                         <div class="container px-5 py-10 mx-auto border-b border-gray-200 mb-10">
                             <div class="lg:w-2/3 sm:flex justify-center items-center mx-auto mb-10 text-center">
                                 <button
-                                    class="flex-shrink-0 text-white bg-red-800 border-0 py-2 px-4 md:px-8 focus:outline-none hover:bg-red-600 rounded text-lg ">30分の戦歴</button>
-                                    <h1 class="flex flex-wrap justify-center text-6xl font-medium title-font text-gray-900 my-5 md:my-0 md:ml-10 ">
-                                        <div class="mr-4">
-                                            <span class="mr-1">{{ $thiCount }}<span class="text-lg mr-1">戦</span></span>
+                                    class="flex-shrink-0 text-white bg-gradient-to-r from-green-400 via-green-500 to-green-700 border-0 py-2 px-4 md:px-8 rounded text-lg ">30分の戦歴</button>
+                                    <h1 class="flex flex-wrap justify-center text-5xl sm:text-7xl font-medium title-font text-gray-900 my-5 md:my-0 md:ml-10 ">
+                                        <div class="mr-2">
+                                            <span class="">{{ $thiCount }}<span class="text-lg">戦</span></span>
                                         </div>
-                                        <div class="">
-                                            <span class="mr-1">{{ $thiWinCount }}<span class="text-lg mr-1">勝</span></span>
-                                            <span class="mr-1">{{ $thiLoseCount }}<span class="text-lg mr-1">敗</span></span>
+                                        <div>
+                                            <span class="mr-1">{{ $thiWinCount }}<span class="text-lg">勝</span></span>
+                                            <span class="mr-1">{{ $thiLoseCount }}<span class="text-lg">敗</span></span>
                                         </div>
-                                    </h1>                        
+                                    </h1>                      
                             </div>
                             {{-- コメントリスト --}}
                             @foreach ($thirty as $thi)

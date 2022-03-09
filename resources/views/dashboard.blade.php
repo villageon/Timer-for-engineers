@@ -25,7 +25,7 @@
                                     </div>
                                     <div>
                                         <button type="button" onclick="location.href='{{ route('fif-timer.index') }}'"
-                                            class="flex mx-auto text-white bg-green-500 border-0 mt-5 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg">準備</button>
+                                            class="flex mx-auto text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 border-0 mt-5 py-2 px-8 focus:outline-none hover:bg-gradient-to-r from-green-500 via-green-600 to-green-700 rounded text-lg">準備</button>
                                     </div>
                                 </div>
                             </div>
@@ -39,7 +39,7 @@
                                     </div>
                                     <div>
                                         <button type="button" onclick="location.href='{{ route('thi-timer.index') }}'"
-                                            class="flex mx-auto text-white bg-green-500 border-0 mt-5 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg">準備</button>
+                                            class="flex mx-auto text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 border-0 mt-5 py-2 px-8 focus:outline-none hover:bg-gradient-to-r from-green-500 via-green-600 to-green-700 rounded text-lg">準備</button>
                                     </div>
                                 </div>
                                 <div
