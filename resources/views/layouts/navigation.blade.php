@@ -21,7 +21,7 @@
                         {{ __('プロフィール') }}
                     </x-nav-link>
                     <x-nav-link :href="route('timerHistory')" :active="request()->routeIs('timerHistory')">
-                        {{ __('戦歴') }}
+                        {{ __('成績') }}
                     </x-nav-link>
                     <x-nav-link :href="route('rank')" :active="request()->routeIs('rank')">
                         {{ __('ランキング') }}
@@ -81,7 +81,7 @@
                 {{ __('プロフィール') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('timerHistory')" :active="request()->routeIs('timerHistory')">
-                {{ __('戦歴') }}
+                {{ __('成績') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('rank')" :active="request()->routeIs('rank')">
                 {{ __('ランキング') }}

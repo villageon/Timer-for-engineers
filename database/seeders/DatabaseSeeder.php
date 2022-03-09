@@ -18,8 +18,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // User::factory(100)->create();
-        // Profile::factory(100)->create();
         Ranking::factory(100)->create();
         TimerHistory::factory(1000)->create();
         
