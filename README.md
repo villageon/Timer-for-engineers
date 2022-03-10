@@ -40,7 +40,6 @@ paginationも実装しており、指定した期間も引き継ぐようにし�
 
 ***
 
-
 ### 【導入方法】
 
 git clone git@github.com:villageon/Timer-for-engineers.git
@@ -68,9 +67,6 @@ php artisan storage:link
 php artisan vendor:publish --tag=laravel-pagination
 
 php artisan migrate:refresh --seed
-
-id=1のユーザーのメールアドレスを任意のメールアドレスに変更
-※DatabaseSeederのfactoryをコメントアウトし、seederのコメントアウトを外すことでデータ量を変更できる
 
 ID: test@test.com
 PW: passwordでログイン
