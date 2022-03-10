@@ -75,6 +75,7 @@ ID: test@test.com
 PW: passwordでログイン
 
 php artisan queue:work
+※必要ないかも、dockerをbuidしたタイミングでワーカーが起動してる説
 
 npm run watch
 

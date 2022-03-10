@@ -39,8 +39,11 @@
                     <div class="flex items-center px-4 py-2 rounded-lg">
                         <div
                             class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4 md:mr-10 overflow-hidden">
+                            <a
+                            href="{{ route('profile.show', ['id' => $value['user']['id']]) }}">
                             <x-thumbnail filename="{{ $value['image']['icon'] ?? '' }}"
                                 type="icon" />
+                            </a>
                         </div>
                         <div class="md:flex text-center flex-auto items-center">
                             <h2
