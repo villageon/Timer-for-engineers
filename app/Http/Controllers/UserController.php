@@ -7,6 +7,8 @@ use App\Models\Menter;
 use App\Models\Profile;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Repository\MenterRepository\MenterRepositoryInterface;
+use App\Repository\UserRepository\UserRepositoryInterface;
 use App\Services\ImageService;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -16,17 +18,26 @@ use Throwable;
 
 class UserController extends Controller
 {
+
+    private $userRepository;
+    private $menterRepository;
+
+    public function __construct(UserRepositoryInterface $userRepository, MenterRepositoryInterface $menterRepository)
+    {
+        $this->userRepository = $userRepository;
+        $this->menterRepository = $menterRepository;
+    }
+
     public function profile()
     {
-
-        $user = User::with('profile','image','timerHistory','menter')->findOrFail(Auth::id());
+        $user = $this->userRepository->getUser(Auth::id());
 
         return view('user.profile', compact('user'));
     }
 
     public function edit()
     {
-        $user = User::with('profile','image','timerHistory')->findOrFail(Auth::id());
+        $user = $this->userRepository->getUser(Auth::id());
 
         return view('user.edit', compact('user'));
     }
@@ -38,69 +49,24 @@ class UserController extends Controller
             DB::transaction(function () use ($request) {
 
                 //user
-                $user = User::findOrFail(Auth::id());
-                $user->name = $request->name ?? $user->name;
-                $user->save();
+                $user = $this->userRepository->getUser(Auth::id());
+                $this->userRepository->updateUserName($request, $user);
 
                 //menter
-                $menter = Menter::where('user_id', Auth::id())->first();
-                if(!isset($menter)){
-                    Menter::create([
-                        'user_id' => Auth::id(),
-                        'm_name' => $request->m_name ?? 'メンターを設定してください。',
-                        'm_email' => $request->m_email ?? 'メンターのメールアドレスを設定してください。',
-                    ]);
-                } else {
-                    $menter->m_name = $request->m_name ?? $menter->m_name;
-                    $menter->m_email = $request->m_email ?? $menter->m_email;
-                    $menter->save();
-                }
+                $menter = $this->menterRepository->getMenter(Auth::id());
+                $this->menterRepository->createUpdateMenter($request, $menter);
 
                 //profile
-                $profile = Profile::where('user_id', Auth::id())->first();
-                if(!isset($profile)){
-                    Profile::create([
-                        'user_id' => Auth::id(),
-                        'contents' => $request->contents ?? '自己紹介を入力してください。',
-                    ]);
-                } else {
-                    $profile->contents = $request->contents ?? $profile->contents;
-                    $profile->save();
-                }
+                $profile = $this->userRepository->getProfile(Auth::id());
+                $this->userRepository->createUpdateProfile($request, $profile);
 
                 //image
-                $headerImageFile = $request->header_image;
-                $iconImageFile = $request->icon_image;
+                $headerToStore = ImageService::uploadHeaderImage($request->header_image);
+                $iconToStore = ImageService::uploadIconImage($request->icon_image);
 
-                $headerToStore = ImageService::uploadHeaderImage($headerImageFile);
-                $iconToStore = ImageService::uploadIconImage($iconImageFile);
+                $image = $this->userRepository->getImage(Auth::id());
+                $this->userRepository-> createUpdateImage($image, Auth::id(), $headerToStore, $iconToStore);
 
-                $userImage = Image::where('user_id', Auth::id())->first();
-
-                if (isset($userImage)) {
-                    //既に登録されていたら更新する
-                    $image = Image::where('user_id', Auth::id())->first();
-
-                    if (isset($image->header) && isset($headerToStore)) {
-                        Storage::delete('public/headers/' . $userImage->header);
-                    }
-
-                    if (isset($image->icon) && isset($iconToStore)) {
-                        Storage::delete('public/icons/' . $userImage->icon);
-                    }
-
-                    $image->header = $headerToStore ?? $userImage->header;
-                    $image->icon =  $iconToStore ?? $userImage->icon;
-                    $image->save();
-                } else {
-
-                    //登録されていなかったら新規作成する
-                    Image::create([
-                        'user_id' => Auth::id(),
-                        'header' => $headerToStore ?? '',
-                        'icon' => $iconToStore ?? '',
-                    ]);
-                }
             }, 2);
 
         } catch (Throwable $e) {
