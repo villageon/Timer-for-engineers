@@ -41,7 +41,7 @@ paginationも実装しており、指定した期間も引き継ぐようにし�
 ***
 
 
-## 【導入方法】
+### 【導入方法】
 
 git clone git@github.com:villageon/Timer-for-engineers.git
 
@@ -73,5 +73,9 @@ id=1のユーザーのメールアドレスを任意のメールアドレスに�
 
 ID: test@test.com
 PW: passwordでログイン
+
+php artisan queue:work
+
+npm run watch
 
 ***
