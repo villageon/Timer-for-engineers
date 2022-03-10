@@ -47,13 +47,14 @@ git clone git@github.com:villageon/Timer-for-engineers.git
 
 〇envの設定
 
-.envを作成し、.env.exampleにコピー
+.envを作成し、.env.exampleをコピー
 
 MAIL_MAILER以降に、mailtrapの設定をコピー
 
 〇その他の設定
 
 composer install
+
 npm install
 
 WSLにて、docker compose up -d --build
