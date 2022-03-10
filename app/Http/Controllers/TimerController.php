@@ -2,176 +2,35 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\TimerHistory;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Constants\Common;
 use App\Models\Ranking;
+use App\Repository\HistoryRepository\HistoryRepositoryInterface;
+use App\Services\HistoryService;
 
 class TimerController extends Controller
 {
+    public $historyService;
+    public $historyRepository;
+
+    public function __construct(HistoryService $historyService, HistoryRepositoryInterface $historyRepository)
+    {
+        $this->historyService = $historyService;
+        $this->historyRepository = $historyRepository;
+    }
 
     public function history(Request $request){
 
         $date = $request->input('date') ?? 'year';
-
-        if($date === 'year'){
-
-            $fifteen = TimerHistory::where('user_id', Auth::id())
-            ->whereYear('created_at', '=', date("Y"))
-            ->where('type', Common::MINUTES['fifteen'] )
-            ->orderBy('created_at', 'desc')
-            ->paginate(3);
-    
-            $fifCount = TimerHistory::where('user_id', Auth::id())
-            ->whereYear('created_at', '=', date("Y"))
-            ->where('type', Common::MINUTES['fifteen'])
-            ->get()->count();
-    
-            $fifWinCount = TimerHistory::where('user_id', Auth::id())
-            ->whereYear('created_at', '=', date("Y"))
-            ->where('type',  Common::MINUTES['fifteen'])
-            ->where('judge', Common::JUDGE['winner'])
-            ->get()->count();
-    
-            $fifLoseCount = TimerHistory::where('user_id', Auth::id())
-            ->whereYear('created_at', '=', date("Y"))
-            ->where('type', Common::MINUTES['fifteen'])
-            ->where('judge', Common::JUDGE['loser'])
-            ->get()->count();
-    
-            $thirty = TimerHistory::where('user_id', Auth::id())
-            ->whereYear('created_at', '=', date("Y"))
-            ->where('type',  Common::MINUTES['thirty'])
-            ->orderBy('created_at', 'desc')
-            ->paginate(3);
-    
-            $thiCount = TimerHistory::where('user_id', Auth::id())
-            ->whereYear('created_at', '=', date("Y"))
-            ->where('type',  Common::MINUTES['thirty'])
-            ->get()->count();
-    
-            $thiWinCount = TimerHistory::where('user_id', Auth::id())
-            ->whereYear('created_at', '=', date("Y"))
-            ->where('type', Common::MINUTES['thirty'])
-            ->where('judge', Common::JUDGE['winner'])
-            ->get()->count();
-    
-            $thiLoseCount = TimerHistory::where('user_id', Auth::id())
-            ->whereYear('created_at', '=', date("Y"))
-            ->where('type', Common::MINUTES['thirty'])
-            ->where('judge', Common::JUDGE['loser'])
-            ->get()->count();
-    
-        } else if($date === 'month'){
-            
-            $fifteen = TimerHistory::where('user_id', Auth::id())
-            ->whereMonth('created_at', '=', date("m"))
-            ->where('type', Common::MINUTES['fifteen'] )
-            ->orderBy('created_at', 'desc')
-            ->paginate(3);
-    
-            $fifCount = TimerHistory::where('user_id', Auth::id())
-            ->whereMonth('created_at', '=', date("m"))
-            ->where('type', Common::MINUTES['fifteen'])
-            ->get()->count();
-    
-            $fifWinCount = TimerHistory::where('user_id', Auth::id())
-            ->whereMonth('created_at', '=', date("m"))
-            ->where('type',  Common::MINUTES['fifteen'])
-            ->where('judge', Common::JUDGE['winner'])
-            ->get()->count();
-    
-            $fifLoseCount = TimerHistory::where('user_id', Auth::id())
-            ->whereMonth('created_at', '=', date("m"))
-            ->where('type', Common::MINUTES['fifteen'])
-            ->where('judge', Common::JUDGE['loser'])
-            ->get()->count();
-    
-            $thirty = TimerHistory::where('user_id', Auth::id())
-            ->whereMonth('created_at', '=', date("m"))
-            ->where('type',  Common::MINUTES['thirty'])
-            ->orderBy('created_at', 'desc')
-            ->paginate(3);
-    
-            $thiCount = TimerHistory::where('user_id', Auth::id())
-            ->whereMonth('created_at', '=', date("m"))
-            ->where('type',  Common::MINUTES['thirty'])
-            ->get()->count();
-    
-            $thiWinCount = TimerHistory::where('user_id', Auth::id())
-            ->whereMonth('created_at', '=', date("m"))
-            ->where('type', Common::MINUTES['thirty'])
-            ->where('judge', Common::JUDGE['winner'])
-            ->get()->count();
-    
-            $thiLoseCount = TimerHistory::where('user_id', Auth::id())
-            ->whereMonth('created_at', '=', date("m"))
-            ->where('type', Common::MINUTES['thirty'])
-            ->where('judge', Common::JUDGE['loser'])
-            ->get()->count();
-
-        } else if($date === 'day'){
-
-            $fifteen = TimerHistory::where('user_id', Auth::id())
-            ->whereDay('created_at', '=', date("d"))
-            ->where('type', Common::MINUTES['fifteen'] )
-            ->orderBy('created_at', 'desc')
-            ->paginate(3);
-    
-            $fifCount = TimerHistory::where('user_id', Auth::id())
-            ->whereDay('created_at', '=', date("d"))
-            ->where('type', Common::MINUTES['fifteen'])
-            ->get()->count();
-    
-            $fifWinCount = TimerHistory::where('user_id', Auth::id())
-            ->whereDay('created_at', '=', date("d"))
-            ->where('type',  Common::MINUTES['fifteen'])
-            ->where('judge', Common::JUDGE['winner'])
-            ->get()->count();
-    
-            $fifLoseCount = TimerHistory::where('user_id', Auth::id())
-            ->whereDay('created_at', '=', date("d"))
-            ->where('type', Common::MINUTES['fifteen'])
-            ->where('judge', Common::JUDGE['loser'])
-            ->get()->count();
-    
-            $thirty = TimerHistory::where('user_id', Auth::id())
-            ->whereDay('created_at', '=', date("d"))
-            ->where('type',  Common::MINUTES['thirty'])
-            ->orderBy('created_at', 'desc')
-            ->paginate(3);
-    
-            $thiCount = TimerHistory::where('user_id', Auth::id())
-            ->whereDay('created_at', '=', date("d"))
-            ->where('type',  Common::MINUTES['thirty'])
-            ->get()->count();
-    
-            $thiWinCount = TimerHistory::where('user_id', Auth::id())
-            ->whereDay('created_at', '=', date("d"))
-            ->where('type', Common::MINUTES['thirty'])
-            ->where('judge', Common::JUDGE['winner'])
-            ->get()->count();
-    
-            $thiLoseCount = TimerHistory::where('user_id', Auth::id())
-            ->whereDay('created_at', '=', date("d"))
-            ->where('type', Common::MINUTES['thirty'])
-            ->where('judge', Common::JUDGE['loser'])
-            ->get()->count();
-
-        }
-
-       
-        // dd($fif , $thi);
+        list($date, $fifteen, $fifCount, $fifWinCount, $fifLoseCount, $thirty, $thiCount, $thiWinCount, $thiLoseCount) = $this->historyService->getHistory($date, Auth::id());
 
         return view('timer.history', compact('date', 'fifteen', 'fifCount', 'fifWinCount', 'fifLoseCount', 'thirty', 'thiCount', 'thiWinCount','thiLoseCount'));
     }
 
     public function detail($id){
-        $CommentDetail = TimerHistory::where('user_id', Auth::id())
-        ->where('id', $id )
-        ->first();
+
+        $CommentDetail = $this->historyRepository->getComment($id, Auth::id());
 
         // dd($CommentDetail);
 

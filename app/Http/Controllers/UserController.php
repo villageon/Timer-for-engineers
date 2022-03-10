@@ -2,19 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Image;
-use App\Models\Menter;
-use App\Models\Profile;
-use Illuminate\Http\Request;
-use App\Models\User;
+use Throwable;
+use App\Services\ImageService;
 use App\Repository\MenterRepository\MenterRepositoryInterface;
 use App\Repository\UserRepository\UserRepositoryInterface;
-use App\Services\ImageService;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Storage;
-use Throwable;
 
 class UserController extends Controller
 {
