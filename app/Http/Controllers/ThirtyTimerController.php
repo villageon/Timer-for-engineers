@@ -8,6 +8,7 @@ use App\Models\TimerHistory;
 use App\Models\User;
 use App\Services\RankingService;
 use App\Jobs\SendMenterMail;
+use App\Services\MenterService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -16,17 +17,12 @@ use Illuminate\Support\Facades\Log;
 
 class ThirtyTimerController extends Controller
 {
-    public function index()
+    public $menterService;
+
+    public function index(MenterService $menterService)
     {
         // メンター情報の取得
-        $menter = Menter::where('user_id', Auth::id())->first();
-        if (is_null($menter)) {
-            $menter = new Menter();
-            $menter->user_id = Auth::id();
-            $menter->m_name = '';
-            $menter->m_email = '';
-        }
-
+        $menter = $menterService->updateMenter(Auth::id());
 
         return view('timer.thi-index', compact('menter'));
     }

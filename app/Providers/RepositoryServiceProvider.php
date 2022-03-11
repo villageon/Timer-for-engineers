@@ -18,6 +18,8 @@ use App\Repository\TimerRepository\TimerMonthRepositoryInterface;
 use App\Repository\TimerRepository\TimerYearRepository;
 use App\Repository\TimerRepository\TimerYearRepositoryInterface;
 use App\Services\HistoryService;
+use App\Services\MenterService;
+use App\Services\RankingService;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
@@ -54,6 +56,14 @@ class RepositoryServiceProvider extends ServiceProvider
 
         $this->app->bind(
             'HistoryService', HistoryService::class
+        );
+
+        $this->app->bind(
+            'RankingService', RankingService::class
+        );
+        
+        $this->app->bind(
+            'MenterService', MenterService::class
         );
     }
 

@@ -7,6 +7,7 @@ use App\Models\Menter;
 use App\Models\TimerHistory;
 use App\Models\User;
 use App\Jobs\SendMenterMail;
+use App\Services\MenterService;
 use App\Services\RankingService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,16 +17,10 @@ use Illuminate\Support\Facades\Log;
 class FifteenTimerController extends Controller
 {
 
-    public function index()
+    public function index(MenterService $menterService)
     {
         // メンター情報の取得
-        $menter = Menter::where('user_id', Auth::id())->first();
-        if (is_null($menter)) {
-            $menter = new Menter();
-            $menter->user_id = Auth::id();
-            $menter->m_name = '';
-            $menter->m_email = '';
-        }
+        $menter = $menterService->updateMenter(Auth::id());
 
         return view('timer.fif-index', compact('menter'));
     }

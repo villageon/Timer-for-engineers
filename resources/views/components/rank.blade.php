@@ -9,12 +9,12 @@
                     <h2 class="text-3xl md:text-4xl lg:text-5xl">タイムアタックランキング</h2>
                 </div>
 
-                @if($type == \Constant::MINUTES['fifteen'])
-                <h2 class="text-3xl md:text-4xl lg:text-5xl">【15分の部】</h2>
+                @if ($type == \Constant::MINUTES['fifteen'])
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl">【15分の部】</h2>
                 @elseif($type == \Constant::MINUTES['thirty'])
-                <h2 class="text-3xl md:text-4xl lg:text-5xl">【30分の部】</h2>
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl">【30分の部】</h2>
                 @endif
-                
+
             </div>
         </div>
     </div>
@@ -23,43 +23,49 @@
             {{-- 1~3位 --}}
             @foreach ($oneToThree as $index => $value)
                 <div class="mb-2 md:mb-5 lg:mb-8 md:px-5">
-                    @if($index == 0)
-                    <div class="w-16 md:w-20 lg:w-24 mx-auto mb-2">
-                        <img src="{{ asset('images/first-2.png') }}" alt="">
-                    </div>
+                    @if ($index == 0)
+                        <div class="w-16 md:w-20 lg:w-24 mx-auto mb-2">
+                            <img src="{{ asset('images/first-2.png') }}" alt="">
+                        </div>
                     @elseif($index == 1)
-                    <div class="w-16 md:w-20 lg:w-24 mx-auto mb-2">
-                        <img src="{{ asset('images/second-2.png') }}" alt="">
-                    </div>
+                        <div class="w-16 md:w-20 lg:w-24 mx-auto mb-2">
+                            <img src="{{ asset('images/second-2.png') }}" alt="">
+                        </div>
                     @elseif($index == 2)
-                    <div class="w-16 md:w-20 lg:w-24 mx-auto mb-2">
-                        <img src="{{ asset('images/third-2.png') }}" alt="">
-                    </div>
+                        <div class="w-16 md:w-20 lg:w-24 mx-auto mb-2">
+                            <img src="{{ asset('images/third-2.png') }}" alt="">
+                        </div>
                     @endif
                     <div class="flex items-center px-4 py-2 rounded-lg">
                         <div
                             class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4 md:mr-10 overflow-hidden">
-                            <a
-                            href="{{ route('profile.show', ['id' => $value['user']['id']]) }}">
-                            <x-thumbnail filename="{{ $value['image']['icon'] ?? '' }}"
-                                type="icon" />
+                            <a href="{{ route('profile.show', ['id' => $value['user']['id']]) }}">
+                                <x-thumbnail filename="{{ $value['image']['icon'] ?? '' }}" type="icon" />
                             </a>
                         </div>
                         <div class="md:flex text-center flex-auto items-center">
-                            <h2
-                                class="text-lg md:text-2xl lg:text-3xl text-gray-900 title-font font-medium md:mr-3">
-                                <a
-                                    href="{{ route('profile.show', ['id' => $value['user']['id']]) }}">
+                            <h2 class="text-lg md:text-2xl lg:text-3xl text-gray-900 title-font font-medium md:mr-3">
+                                <a href="{{ route('profile.show', ['id' => $value['user']['id']]) }}">
                                     {{ $value['user']['name'] }}
                                 </a>
                             </h2>
                             <h3 class="flex-auto text-xl md:text-3xl lg:text-4xl text-red-900">
-                                @if ($date === 'year')
-                                    {{ $value['fif_all'] }}%
-                                @elseif($date === 'month')
-                                    {{ $value['fif_month'] }}%
-                                @elseif($date === 'day')
-                                    {{ $value['fif_day'] }}%
+                                @if ($type == \Constant::MINUTES['fifteen'])
+                                    @if ($date === 'year')
+                                        {{ $value['fif_all'] }}%
+                                    @elseif($date === 'month')
+                                        {{ $value['fif_month'] }}%
+                                    @elseif($date === 'day')
+                                        {{ $value['fif_day'] }}%
+                                    @endif
+                                @elseif($type == \Constant::MINUTES['thirty'])
+                                    @if ($date === 'year')
+                                        {{ $value['thi_all'] }}%
+                                    @elseif($date === 'month')
+                                        {{ $value['thi_month'] }}%
+                                    @elseif($date === 'day')
+                                        {{ $value['thi_day'] }}%
+                                    @endif
                                 @endif
                             </h3>
                         </div>
@@ -82,19 +88,27 @@
                                 <div class="flex flex-auto items-center">
                                     <h2
                                         class="text-md md:text-lg lg:text-xl text-gray-900 title-font font-medium mr-3 lg:mr-5">
-                                        <a
-                                            href="{{ route('profile.show', ['id' => $value['user']['id']]) }}">
+                                        <a href="{{ route('profile.show', ['id' => $value['user']['id']]) }}">
                                             {{ $value['user']['name'] }}
                                         </a>
                                     </h2>
-                                    <p
-                                        class="flex-auto text-center text-lg md:text-xl lg:text-2xl text-red-900">
-                                        @if ($date === 'year')
-                                            {{ $value['fif_all'] }}%
-                                        @elseif($date === 'month')
-                                            {{ $value['fif_month'] }}%
-                                        @elseif($date === 'day')
-                                            {{ $value['fif_day'] }}%
+                                    <p class="flex-auto text-center text-lg md:text-xl lg:text-2xl text-red-900">
+                                        @if ($type == \Constant::MINUTES['fifteen'])
+                                            @if ($date === 'year')
+                                                {{ $value['fif_all'] }}%
+                                            @elseif($date === 'month')
+                                                {{ $value['fif_month'] }}%
+                                            @elseif($date === 'day')
+                                                {{ $value['fif_day'] }}%
+                                            @endif
+                                        @elseif($type == \Constant::MINUTES['thirty'])
+                                            @if ($date === 'year')
+                                                {{ $value['thi_all'] }}%
+                                            @elseif($date === 'month')
+                                                {{ $value['thi_month'] }}%
+                                            @elseif($date === 'day')
+                                                {{ $value['thi_day'] }}%
+                                            @endif
                                         @endif
                                     </p>
                                 </div>

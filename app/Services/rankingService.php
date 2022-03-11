@@ -6,10 +6,18 @@ use App\Constants\Common;
 use App\Models\Ranking;
 use App\Models\User;
 use App\Models\TimerHistory;
+use App\Repository\RankingRepository\RankingRepositoryInterface;
 use Illuminate\Support\Facades\Auth;
 
 class RankingService
 {
+    private $rankingRepository;
+
+    public function __construct(RankingRepositoryInterface $rankingRepository)
+    {
+        $this->rankingRepository = $rankingRepository;
+    }
+
     public static function rank(){
 
         //以下でrankingsテーブルへ追加していく
@@ -119,6 +127,33 @@ class RankingService
 
         }
 
+    }
+
+    public function sort($request){
+        
+        $date = $request->input('date') ?? 'year';
+
+        if($date === 'year'){
+            $fifSort = 'fif_all';
+            $thiSort = 'thi_all';
+        } else if($date === 'month'){
+            $fifSort = 'fif_month';
+            $thiSort = 'thi_month';
+        } else if($date === 'day'){
+            $fifSort = 'fif_day';
+            $thiSort = 'thi_day';
+        }
+
+        $fifData = $this->rankingRepository->getRanking($fifSort);
+        $thiData = $this->rankingRepository->getRanking($thiSort);
+
+        $fifOneToThree = array_slice($fifData, 0, 3);
+        $fifFourToTwelve = array_slice($fifData, 3, 7);
+
+        $thiOneToThree = array_slice($thiData, 0, 3);
+        $thiFourToTwelve = array_slice($thiData, 3, 7);
+
+        return [$date, $fifOneToThree, $fifFourToTwelve, $thiOneToThree, $thiFourToTwelve];
     }
     
 }
