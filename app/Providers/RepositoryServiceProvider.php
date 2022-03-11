@@ -20,6 +20,7 @@ use App\Repository\TimerRepository\TimerYearRepositoryInterface;
 use App\Services\HistoryService;
 use App\Services\MenterService;
 use App\Services\RankingService;
+use App\Services\TimerService;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
@@ -64,6 +65,10 @@ class RepositoryServiceProvider extends ServiceProvider
         
         $this->app->bind(
             'MenterService', MenterService::class
+        );
+
+        $this->app->bind(
+            'TimerService', TimerService::class
         );
     }
 

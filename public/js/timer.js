@@ -157,7 +157,7 @@ stop.addEventListener("click", () => {
         stop.classList.add("inactive")
         start.classList.remove("inactive")
         reset.classList.remove("inactive")
-        complete.classList.remove("inactive")
+        complete.classList.add("inactive")
     } else {
         return
     }
