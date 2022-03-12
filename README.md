@@ -40,20 +40,20 @@ paginationも実装しており、指定した期間も引き継ぐようにし�
 
 ***
 
-
-## 【導入方法】
+### 【導入方法】
 
 git clone git@github.com:villageon/Timer-for-engineers.git
 
 〇envの設定
 
-.envを作成し、.env.exampleにコピー
+.envを作成し、.env.exampleをコピー
 
 MAIL_MAILER以降に、mailtrapの設定をコピー
 
 〇その他の設定
 
 composer install
+
 npm install
 
 WSLにて、docker compose up -d --build
@@ -68,10 +68,20 @@ php artisan vendor:publish --tag=laravel-pagination
 
 php artisan migrate:refresh --seed
 
-id=1のユーザーのメールアドレスを任意のメールアドレスに変更
-※DatabaseSeederのfactoryをコメントアウトし、seederのコメントアウトを外すことでデータ量を変更できる
-
 ID: test@test.com
 PW: passwordでログイン
 
+php artisan queue:work
+※必要ないかも、dockerをbuidしたタイミングでワーカーが起動してる説
+
+npm run watch
+
 ***
+
+### 【バグ】
+
+**タイマーにバグ発生**
+
+黄色モードに入った時にボタンが消える
+
+リセットしてからスタートしたときに、UIが上手く遷移していない

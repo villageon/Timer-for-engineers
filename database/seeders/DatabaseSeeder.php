@@ -20,11 +20,11 @@ class DatabaseSeeder extends Seeder
     {
         Ranking::factory(100)->create();
         TimerHistory::factory(1000)->create();
-        
+
         $this->call([
-            // UserSeeder::class,
-            // ProfileSeeder::class,
-            // TimerHistorySeeder::class,
+            UserSeeder::class,
+            ProfileSeeder::class,
+            TimerHistorySeeder::class,
             MenterSeeder::class,
         ]);
     }
