@@ -14,19 +14,19 @@
                     <form action="{{ route('rank') }}" method="get">
                         <input type="hidden" name="date" value="year">
                         <button type="submit"
-                            class="mx-auto text-white bg-red-800 border-0 my-5 py-2 px-4 md:px-8 mr-3 md:mr-5 focus:outline-none hover:bg-red-700 rounded">今年</button>
+                            class="mx-auto text-white bg-gradient-to-r from-red-500 via-red-600 to-red-700 border-0 my-5 py-2 px-4 md:px-8 mr-3 md:mr-5 focus:outline-none hover:bg-red-700 rounded">今年</button>
                     </form>
 
                     <form action="{{ route('rank') }}" method="get">
                         <input type="hidden" name="date" value="month">
                         <button type="submit"
-                            class="mx-auto text-white bg-red-800 border-0 my-5 py-2 px-4 md:px-8 mr-3 md:mr-5 focus:outline-none hover:bg-red-700 rounded">今月</button>
+                            class="mx-auto text-white bg-gradient-to-r from-red-500 via-red-600 to-red-700 border-0 my-5 py-2 px-4 md:px-8 mr-3 md:mr-5 focus:outline-none hover:bg-red-700 rounded">今月</button>
                     </form>
 
                     <form action="{{ route('rank') }}" method="get">
                         <input type="hidden" name="date" value="day">
                         <button type="submit"
-                            class="mx-auto text-white bg-red-800 border-0 my-5 py-2 px-4 md:px-8 mr-3 md:mr-5 focus:outline-none hover:bg-red-700 rounded">今日</button>
+                            class="mx-auto text-white bg-gradient-to-r from-red-500 via-red-600 to-red-700 border-0 my-5 py-2 px-4 md:px-8 mr-3 md:mr-5 focus:outline-none hover:bg-red-700 rounded">今日</button>
                     </form>
                 </div>
             </div>
