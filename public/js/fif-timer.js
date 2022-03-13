@@ -62,8 +62,8 @@ let WarningLogo = document.getElementById("warning-logo");
 let DangerLogo = document.getElementById("danger-logo");
 
 function resetTime() {
-    minutes = 05;
-    seconds = 10;
+    minutes = 15;
+    seconds = 00;
 }
 
 function displayTime() {

@@ -44,7 +44,7 @@
 
                                     {{-- タイマー --}}
                                     <div class="mt-10 text-center">
-                                        <p id="display" class="flex justify-center text-8xl text-green-800">05:10</p>
+                                        <p id="display" class="flex justify-center text-8xl text-green-800">15:00</p>
                                     </div>
 
                                     {{-- 失敗時の送信フォーム --}}
@@ -62,5 +62,5 @@
             </div>
         </div>
     </div>
-    <script src="{{ asset('js/timer.js') }}" defer></script>
+    <script src="{{ asset('js/fif-timer.js') }}" defer></script>
 </x-app-layout>
