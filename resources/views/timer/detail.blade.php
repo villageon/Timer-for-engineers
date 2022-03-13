@@ -33,7 +33,7 @@
                                                 @endif
                                             </div>
                                         </div>
-                                        <div class="mt-5">
+                                        <div class="mt-5 text-xl md:text-2xl lg:text-3xl">
                                             {{ $CommentDetail->comment }}
                                         </div>
                                         <div class="flex justify-end mt-5">

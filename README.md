@@ -77,3 +77,9 @@ php artisan queue:work
 npm run watch
 
 ***
+
+### 【バグ】
+
+**タイマーにバグ発生**
+
+→ 解消
