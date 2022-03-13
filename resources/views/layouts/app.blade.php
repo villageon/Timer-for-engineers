@@ -27,6 +27,18 @@
                 </div>
             </header>
 
+            <header id="navWarning" class="hidden bg-gradient-to-r from-yellow-600 via-yellow-400 to-yellow-200 shadow">
+                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                    {{ $header }}
+                </div>
+            </header>
+
+            <header id="navDanger" class="hidden bg-gradient-to-r from-red-600 via-red-400 to-red-200 shadow">
+                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                    {{ $header }}
+                </div>
+            </header>
+
             <!-- Page Content -->
             <main>
                 {{ $slot }}
