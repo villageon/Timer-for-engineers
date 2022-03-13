@@ -76,8 +76,12 @@
 
                 @if($judge == \Constant::JUDGE['loser'])
                 <button id="loser-submit" class="text-white bg-green-700 border-0 py-2 px-6 focus:outline-none hover:bg-green-800 rounded text-lg">送信する</button>
+                <button id="loser-submit-warning" class="hidden text-white bg-yellow-700 border-0 py-2 px-6 focus:outline-none hover:bg-yellow-800 rounded text-lg">送信する</button>
+                <button id="loser-submit-danger" class="hidden text-white bg-red-700 border-0 py-2 px-6 focus:outline-none hover:bg-red-800 rounded text-lg">送信する</button>
                 @elseif($judge == \Constant::JUDGE['winner'])
                 <button id="winner-submit" class="text-white bg-green-700 border-0 py-2 px-6 focus:outline-none hover:bg-green-800 rounded text-lg">送信する</button>
+                <button id="winner-submit-warning" class="hidden text-white bg-yellow-700 border-0 py-2 px-6 focus:outline-none hover:bg-yellow-800 rounded text-lg">送信する</button>
+                <button id="winner-submit-danger" class="hidden text-white bg-red-700 border-0 py-2 px-6 focus:outline-none hover:bg-red-800 rounded text-lg">送信する</button>
                 @endif
             </div>
         </div>
