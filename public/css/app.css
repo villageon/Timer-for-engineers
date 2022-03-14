@@ -1278,6 +1278,9 @@ select {
 .p-8 {
   padding: 2rem;
 }
+.p-5 {
+  padding: 1.25rem;
+}
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -1966,6 +1969,10 @@ select {
     margin-bottom: 2.5rem;
   }
 
+  .md\:ml-5 {
+    margin-left: 1.25rem;
+  }
+
   .md\:flex {
     display: flex;
   }
@@ -2010,12 +2017,25 @@ select {
     border-width: 1px;
   }
 
+  .md\:border-4 {
+    border-width: 4px;
+  }
+
+  .md\:border-8 {
+    border-width: 8px;
+  }
+
   .md\:border-solid {
     border-style: solid;
   }
 
   .md\:border-double {
     border-style: double;
+  }
+
+  .md\:border-teal-500 {
+    --tw-border-opacity: 1;
+    border-color: rgb(20 184 166 / var(--tw-border-opacity));
   }
 
   .md\:p-5 {

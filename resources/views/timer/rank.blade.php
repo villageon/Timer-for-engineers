@@ -42,7 +42,7 @@
                     <div class="mt-10 flex justify-center">
                         @if ($date === 'year')
                             <span
-                                class="text-2xl text-red-800 border border-4 font-bold border-red-800 py-1 px-10 md:px-15 rounded-lg">年間</span>
+                                class="text-2xl text-red-800 border border-4 font-bold border-red-800 py-1 px-10 md:px-15 rounded-lg">今年</span>
                         @elseif($date === 'month')
                             <span
                                 class="text-2xl text-red-800 border border-4 font-bold border-red-800 py-1 px-10 md:px-15 rounded-lg">今月</span>
