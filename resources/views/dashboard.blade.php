@@ -21,7 +21,7 @@
                                     <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
                                         <h2 class="text-gray-900 text-lg title-font font-medium mb-2">15分への挑戦
                                         </h2>
-                                        <p class="leading-relaxed text-base">あなたは15分で課題を解決しなければいけない。挑戦するならスタートボタンを押してください。</p>
+                                        <p class="leading-relaxed text-base">あなたは15分で課題を解決しなければいけない。挑戦するなら準備ボタンを押してください。</p>
                                     </div>
                                     <div>
                                         <button type="button" onclick="location.href='{{ route('fif-timer.index') }}'"
@@ -35,7 +35,7 @@
                                 <div>
                                     <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
                                         <h2 class="text-gray-900 text-lg title-font font-medium mb-2">30分への挑戦</h2>
-                                        <p class="leading-relaxed text-base">あなたは30分で課題を解決しなければいけない。挑戦するならスタートボタンを押してください。</p>
+                                        <p class="leading-relaxed text-base">あなたは30分で課題を解決しなければいけない。挑戦するなら準備ボタンを押してください。</p>
                                     </div>
                                     <div>
                                         <button type="button" onclick="location.href='{{ route('thi-timer.index') }}'"

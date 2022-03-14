@@ -1,6 +1,6 @@
-<section class="text-gray-600 body-font md:border-solid border-4 border-teal-500 rounded my-10">
+<section class="text-gray-600 body-font md:border-solid md:border-8 md:border-teal-500 rounded my-10">
     <div class="container">
-        <div class="text-center mb-5 md:mb-10">
+        <div class="text-center mb-5 md:mb-10 md:p-5">
             <div class="md:flex justify-center items-end">
                 <div class="md:flex items-end">
                     <div class="w-20 md:w-24 lg:w-32 md:mr-2 mx-auto">
@@ -19,7 +19,7 @@
         </div>
     </div>
     <div class="md:flex justify-around">
-        <div class="md:w-4/7 lg:w-3/5">
+        <div class="md:w-4/7">
             {{-- 1~3位 --}}
             @foreach ($oneToThree as $index => $value)
                 <div
@@ -77,7 +77,7 @@
         </div>
 
         {{-- 4位~10位 --}}
-        <div class="md:w-3/7 lg:w-2/5 mt-10 md:mt-0 ml-5">
+        <div class="md:w-3/7 mt-10 md:mt-0 md:ml-5">
             <div class="">
                 @foreach ($fourToTwelve as $index => $value)
                     <div class="mb-16">
