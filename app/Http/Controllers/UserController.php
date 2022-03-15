@@ -50,11 +50,11 @@ class UserController extends Controller
 
                 //menter
                 $menter = $this->menterRepository->getMenter(Auth::id());
-                $this->menterRepository->createUpdateMenter($request, $menter);
+                $this->menterRepository->createUpdateMenter(Auth::id() ,$request, $menter);
 
                 //profile
                 $profile = $this->userRepository->getProfile(Auth::id());
-                $this->userRepository->createUpdateProfile($request, $profile);
+                $this->userRepository->createUpdateProfile(Auth::id(), $request, $profile);
 
                 //image
                 $headerToStore = ImageService::uploadHeaderImage($request->header_image);

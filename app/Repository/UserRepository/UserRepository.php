@@ -25,10 +25,10 @@ class UserRepository implements UserRepositoryInterface{
         return Profile::where('user_id', $userId)->first();
     }
 
-    public function createUpdateProfile($request, $profile){
+    public function createUpdateProfile($userId, $request, $profile){
         if(!isset($profile)){
             Profile::create([
-                'user_id' => Auth::id(),
+                'user_id' => $userId,
                 'contents' => $request->contents ?? '自己紹介を入力してください。',
             ]);
         } else {
