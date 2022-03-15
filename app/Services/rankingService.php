@@ -37,23 +37,26 @@ class RankingService
         $thiWinCountMonth = $this->historyRepository->getMonthThiWin(Auth::id());
         $thiCountDay = $this->historyRepository->getDayThi(Auth::id());
         $thiWinCountDay = $this->historyRepository->getDayThiWin(Auth::id());
-    
+
+        
         //fifteen計算スペース
         $fifAllPer = $fifCountAll == 0 ? '' : round($fifWinCountAll / $fifCountAll, 3) * 100;
         $fifMonthPer = $fifCountMonth == 0 ? '': round($fifWinCountMonth / $fifCountMonth, 3) * 100;
         $fifDayPer = $fifCountDay == 0 ? '' : round($fifWinCountDay / $fifCountDay, 3) * 100;
-
+        
         //thirty計算スペース
         $thiAllPer = $thiCountAll == 0 ? '' : round($thiWinCountAll / $thiCountAll, 3) * 100;
         $thiMonthPer = $thiCountMonth == 0 ? '' : round($thiWinCountMonth / $thiCountMonth, 3) * 100;
         $thiDayPer = $thiCountDay == 0 ? '' : round($thiWinCountDay / $thiCountDay, 3) * 100;
-
+        
+        // dd($thiAllPer, $thiMonthPer, $thiDayPer);
         //user_idがテーブルに存在する場合は更新、無い場合は新規作成
         $existedUser = $this->rankingRepository->getUser(Auth::id());
-
+        
         if(isset($existedUser)){
-
-            $this->rankingRepository->saveRanking($existedUser, $fifAllPer, $fifMonthPer, $fifDayPer, $thiAllPer, $thiMonthPer, $thiDayPer);
+            
+            $user = $this->rankingRepository->getUser(Auth::id());
+            $this->rankingRepository->saveRanking($user, $fifAllPer, $fifMonthPer, $fifDayPer, $thiAllPer, $thiMonthPer, $thiDayPer);
 
         } else {
 

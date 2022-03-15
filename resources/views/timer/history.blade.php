@@ -53,7 +53,7 @@
                     <x-history type="{{ \Constant::MINUTES['fifteen'] }}" :count="$fifCount" :winCount="$fifWinCount" :loseCount="$fifLoseCount" :history="$fifteen" />
                     
                     {{-- 30分用 --}}
-                    <x-history type="{{ \Constant::MINUTES['fifteen'] }}" :count="$thiCount" :winCount="$thiWinCount" :loseCount="$thiLoseCount" :history="$thirty" />
+                    <x-history type="{{ \Constant::MINUTES['thirty'] }}" :count="$thiCount" :winCount="$thiWinCount" :loseCount="$thiLoseCount" :history="$thirty" />
                 </div>
             </div>
         </div>

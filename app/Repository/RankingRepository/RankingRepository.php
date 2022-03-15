@@ -18,14 +18,14 @@ class RankingRepository implements RankingRepositoryInterface{
         return Ranking::where('user_id', $userId)->first();
     }
 
-    public function saveRanking($existedUser, $fifAllPer, $fifMonthPer, $fifDayPer, $thiAllPer, $thiMonthPer, $thiDayPer){
-        return $existedUser->fif_all = $fifAllPer;
-        $existedUser->fif_month = $fifMonthPer;
-        $existedUser->fif_day = $fifDayPer;
-        $existedUser->thi_all = $thiAllPer;
-        $existedUser->thi_month = $thiMonthPer;
-        $existedUser->thi_day = $thiDayPer;
-        $existedUser->save();
+    public function saveRanking($user, $fifAllPer, $fifMonthPer, $fifDayPer, $thiAllPer, $thiMonthPer, $thiDayPer){
+        $user->fif_all = $fifAllPer;
+        $user->fif_month = $fifMonthPer;
+        $user->fif_day = $fifDayPer;
+        $user->thi_all = $thiAllPer;
+        $user->thi_month = $thiMonthPer;
+        $user->thi_day = $thiDayPer;
+        $user->save();
     }
 
     public function createRanking($userId, $fifAllPer, $fifMonthPer, $fifDayPer, $thiAllPer, $thiMonthPer, $thiDayPer){
