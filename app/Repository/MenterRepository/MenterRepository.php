@@ -13,11 +13,11 @@ class MenterRepository implements MenterRepositoryInterface{
 
     }
 
-    public function createUpdateMenter($request, $menter){
+    public function createUpdateMenter($userId, $request, $menter){
         
         if(!isset($menter)){
             Menter::create([
-                'user_id' => Auth::id(),
+                'user_id' => $userId,
                 'm_name' => $request->m_name ?? 'メンターを設定してください。',
                 'm_email' => $request->m_email ?? 'メンターのメールアドレスを設定してください。',
             ]);
