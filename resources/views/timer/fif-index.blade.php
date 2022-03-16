@@ -11,9 +11,7 @@
                 <div class="p-6 bg-white border-b border-gray-200">
 
                     {{-- フラッシュメッセージ --}}
-                    <div id="flash">
-                        <x-flash-message status="session('status')" />
-                    </div>
+                    <x-flash-message status="session('status')" />
 
                     <!-- Validation Errors -->
                     <x-auth-validation-errors class="mb-4 text-center" :errors="$errors" />
@@ -44,7 +42,7 @@
 
                                     {{-- タイマー --}}
                                     <div class="mt-10 text-center">
-                                        <p id="display" class="flex justify-center text-8xl text-green-800">15:00</p>
+                                        <p id="display" class="flex justify-center text-8xl">05:10</p>
                                     </div>
 
                                     {{-- 失敗時の送信フォーム --}}
@@ -62,6 +60,6 @@
             </div>
         </div>
     </div>
-    <script src="{{ asset('js/fif-timer.js') }}" defer></script>
+    <script src="{{ asset('js/timer.js') }}" defer></script>
     <script src="{{ asset('js/flash.js') }}" defer></script>
 </x-app-layout>
