@@ -15,7 +15,7 @@ return new class extends Migration
             ->onUpdate('cascade')
             ->onDelete('cascade');
             $table->string('m_name');
-            $table->string('m_email')->unique();
+            $table->string('m_email');
             $table->timestamps();
         });
     }
