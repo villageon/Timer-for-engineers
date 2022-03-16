@@ -84,4 +84,20 @@ npm run watch
 
 → 解消
 
-**例外処理の実装が必要**
+
+### 【デプロイする際の注意点】
+
+〇EC2にSSH接続し、git cloneからの.envコピペ
+
+
+〇docker、composerのインストール
+
+https://qiita.com/reoring/items/0d1f556064d363f0ccb8
+
+docker run --rm -it -v $PWD:/app composer install
+
+docker pull composer
+
+docker-compose up -d
+
+〇artisanコマンドによる書設定
