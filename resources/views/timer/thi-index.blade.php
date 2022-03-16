@@ -64,4 +64,5 @@
         </div>
     </div>
     <script src="{{ asset('js/thi-timer.js') }}" defer></script>
+    <script src="{{ asset('js/flash.js') }}" defer></script>
 </x-app-layout>

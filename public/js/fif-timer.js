@@ -1,6 +1,3 @@
-//フラッシュメッセージ用
-let flash = document.getElementById("flash");
-
 //タイマー用
 let minutes;
 let seconds;
@@ -624,8 +621,5 @@ MenterWinCheckbox.addEventListener("change", function () {
     }
 });
 
-setTimeout(function(){
-    flash.classList.add("hidden");
-}, 5000);
 resetTime();
 displayTime();

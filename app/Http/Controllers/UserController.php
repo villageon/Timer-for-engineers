@@ -40,6 +40,7 @@ class UserController extends Controller
 
     public function update(Request $request)
     {
+        $is_success = true;
 
         try {
             DB::transaction(function () use ($request) {
@@ -66,10 +67,29 @@ class UserController extends Controller
             }, 2);
 
         } catch (Throwable $e) {
+            $is_success = false;
             Log::error($e);
             throw $e;
         }
 
-        return redirect()->route('profile');
+        if ($is_success) {
+
+            return redirect()->route('profile')
+                ->with(
+                    [
+                        'message' => 'プロフィールを更新しました。',
+                        'status' => 'info',
+                    ],
+                ); 
+            } else {
+
+            return redirect()->route('profile')
+                ->with(
+                    [
+                        'message' => 'プロフィールを更新できませんでした',
+                        'status' => 'alret',
+                    ],
+                ); 
+        }
     }
 }
