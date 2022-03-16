@@ -15,7 +15,7 @@
                                 class="flex items-center lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
                                 <div
                                     class="sm:w-48 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center">
-                                    <img src="{{ secure_asset('images/fifteen.png')}}" alt="">
+                                    <img src="{{ asset('images/fifteen.png')}}" alt="">
                                 </div>
                                 <div>
                                     <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
@@ -44,7 +44,7 @@
                                 </div>
                                 <div
                                     class="sm:w-48 sm:order-none order-first sm:h-32 h-20 w-20 sm:ml-10 inline-flex items-center justify-center">
-                                    <img src="{{ secure_asset('images/thirty.png')}}" alt="">
+                                    <img src="{{ asset('images/thirty.png')}}" alt="">
                                 </div>
 
                             </div>

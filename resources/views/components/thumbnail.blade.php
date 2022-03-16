@@ -11,11 +11,11 @@ if($type === 'icon'){
 <div>
     @if (empty($filename))
         @if ($type === 'header')
-        <img src="{{ secure_asset('images/h-noimage.png') }}" alt="" />
+        <img src="{{ asset('images/h-noimage.png') }}" alt="" />
         @else
-        <img src="{{ secure_asset('images/i-noimage.png') }}" alt="" />
+        <img src="{{ asset('images/i-noimage.png') }}" alt="" />
         @endif
     @else
-        <img src="{{ secure_asset($path . $filename) }}" alt="">
+        <img src="{{ asset($path . $filename) }}" alt="">
     @endif
 </div>

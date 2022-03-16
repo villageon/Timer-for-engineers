@@ -4,7 +4,7 @@
             <div class="md:flex justify-center items-end">
                 <div class="md:flex items-end">
                     <div class="w-20 md:w-24 lg:w-32 md:mr-2 mx-auto">
-                        <img src="{{ secure_asset('images/crown.png') }}" alt="">
+                        <img src="{{ asset('images/crown.png') }}" alt="">
                     </div>
                     <h2 class="text-3xl md:text-4xl lg:text-5xl">タイムアタックランキング</h2>
                 </div>
@@ -26,15 +26,15 @@
                     class="mb-2 md:mb-5 lg:mb-8 py-5 md:p-5 bg-gradient-to-r from-teal-200 via-teal-100 to-teal-200 rounded">
                     @if ($index == 0)
                         <div class="w-16 md:w-20 lg:w-24 mx-auto">
-                            <img src="{{ secure_asset('images/first-2.png') }}" alt="">
+                            <img src="{{ asset('images/first-2.png') }}" alt="">
                         </div>
                     @elseif($index == 1)
                         <div class="w-16 md:w-20 lg:w-24 mx-auto">
-                            <img src="{{ secure_asset('images/second-2.png') }}" alt="">
+                            <img src="{{ asset('images/second-2.png') }}" alt="">
                         </div>
                     @elseif($index == 2)
                         <div class="w-16 md:w-20 lg:w-24 mx-auto">
-                            <img src="{{ secure_asset('images/third-2.png') }}" alt="">
+                            <img src="{{ asset('images/third-2.png') }}" alt="">
                         </div>
                     @endif
                     <div class="flex justify-around items-center py-2">
