@@ -88,6 +88,8 @@ npm run watch
 
 .envなどを利用して環境に応じて、通信規格を変更したい
 
+https://www.aws-villageon.com
+
 **タイマーにバグ発生**
 
 → 解消
