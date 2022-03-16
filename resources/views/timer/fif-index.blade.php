@@ -63,4 +63,5 @@
         </div>
     </div>
     <script src="{{ asset('js/fif-timer.js') }}" defer></script>
+    <script src="{{ asset('js/flash.js') }}" defer></script>
 </x-app-layout>
