@@ -21,22 +21,18 @@
 
 #### **〇プロフィール**
 
-ヘッダー画像やアイコン画像、メンターを設定します。
-
+ヘッダー画像やアイコン画像、メンターを設定します。  
 ヘッダー画像はリサイズして、保存しています。
 
 #### **〇成績**
 
-今年、今月、今日の3期間でタイムアタックの成績を記録しています。
-
+今年、今月、今日の3期間でタイムアタックの成績を記録しています。  
 paginationも実装しており、指定した期間も引き継ぐようにしています。
 
 #### **〇ランキング**
 
-今年、今月、今日の3期間でのタイムアタックに係るランキングを表示しています。
-
+今年、今月、今日の3期間でのタイムアタックに係るランキングを表示しています。  
 名前からユーザーのプロフィールへと遷移することも可能です。
-
 
 ***
 
@@ -46,26 +42,18 @@ git clone git@github.com:villageon/Timer-for-engineers.git
 
 〇envの設定
 
-.envを作成し、.env.exampleをコピー
-
+.envを作成し、.env.exampleをコピー  
 MAIL_MAILER以降に、mailtrapの設定をコピー
 
 〇その他の設定
 
-composer install
-
-npm install
-
-WSLにて、docker compose up -d --build
-
-docker compose exec app bash
-
-php artisan key:generate
-
-php artisan storage:link
-
-php artisan vendor:publish --tag=laravel-pagination
-
+composer install  
+npm install  
+WSLにて、docker compose up -d --build  
+docker compose exec app bash  
+php artisan key:generate  
+php artisan storage:link  
+php artisan vendor:publish --tag=laravel-pagination  
 php artisan migrate:refresh --seed
 
 ID: test@test.com
@@ -82,10 +70,8 @@ npm run watch
 
 **SSL化でcssやjsが効かなくなる**
 
-恐らく原因はasset()やurl()にある。
-
-本番環境でこれらをsecure_asset()に変更すれば良い気がするが、手間がかかる
-
+恐らく原因はasset()やurl()にある。  
+本番環境でこれらをsecure_asset()に変更すれば良い気がするが、手間がかかる  
 .envなどを利用して環境に応じて、通信規格を変更したい
 
 **タイマーにバグ発生**
@@ -100,12 +86,9 @@ npm run watch
 
 〇docker、composerのインストール
 
-https://qiita.com/reoring/items/0d1f556064d363f0ccb8
-
-docker run --rm -it -v $PWD:/app composer install
-
-docker pull composer
-
+https://qiita.com/reoring/items/0d1f556064d363f0ccb8  
+docker run --rm -it -v $PWD:/app composer install  
+docker pull composer  
 docker-compose up -d
 
 〇artisanコマンドによる書設定
