@@ -13,7 +13,7 @@
                             @if (Route::has('login'))
                                 <div class="">
                                     @auth
-                                        <a href="{{ url('/dashboard') }}">
+                                        <a href="{{ secure_url('/dashboard') }}">
                                             <button type="button"
                                                 class="mx-auto text-white bg-green-500 border-0 py-2 px-4 md:px-8 focus:outline-none hover:bg-green-700 rounded">ホーム</button>
                                         </a>

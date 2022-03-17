@@ -21,12 +21,12 @@
                             <div
                                 class="flex items-center justify-center lg:w-3/5 mx-auto mb-10 border-gray-200 sm:flex-row flex-col">
                                 <div class="sm:w-48 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center">
-                                    <img id="timer" class="" src="{{ asset('images/fifteen.png') }}"
+                                    <img id="timer" class="" src="{{ secure_asset('images/fifteen.png') }}"
                                         alt="">
                                     <img id="warning-timer" class="hidden"
-                                        src="{{ asset('images/fifteen-warning.png') }}" alt="">
+                                        src="{{ secure_asset('images/fifteen-warning.png') }}" alt="">
                                     <img id="danger-timer" class="hidden"
-                                        src="{{ asset('images/fifteen-danger.png') }}" alt="">
+                                        src="{{ secure_asset('images/fifteen-danger.png') }}" alt="">
                                 </div>
                                 <div>
                                     <div class="flex-grow text-center mt-5">
@@ -60,6 +60,6 @@
             </div>
         </div>
     </div>
-    <script src="{{ asset('js/timer.js') }}" defer></script>
-    <script src="{{ asset('js/flash.js') }}" defer></script>
+    <script src="{{ secure_asset('js/timer.js') }}" defer></script>
+    <script src="{{ secure_asset('js/flash.js') }}" defer></script>
 </x-app-layout>
