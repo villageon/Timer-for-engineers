@@ -64,5 +64,5 @@
             </div>
         </div>
     </div>
-    <script src="{{ asset('js/flash.js') }}" defer></script>
+    <script src="../../js/flash.js" defer></script>
 </x-app-layout>
