@@ -71,8 +71,9 @@ npm run watch
 
 恐らく原因はasset()やurl()にある。  
 本番環境でこれらをsecure_asset()に変更すれば良い気がするが、手間がかかる  
-
 .envなどを利用して環境に応じて、通信規格を変更したい
+
+→相対パスへの変更によりエラー解消
 
 (エラー発生中)
 https://www.aws-villageon.com
